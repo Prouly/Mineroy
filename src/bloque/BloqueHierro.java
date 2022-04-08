@@ -1,24 +1,17 @@
 package bloque;
 
-import categoria.BloqueVegetal;
+import bloque.categoria.BloqueMineral;
 import juego.Jugador;
 
-/**
- * Bloque Planta
- * 
- * @author Alvaro M. & Fran V.
- *
- */
-
-public class BloquePlanta extends Bloque implements BloqueVegetal{
+public class BloqueHierro extends Bloque implements BloqueMineral{
 	
 	private int material;
 	
-	public BloquePlanta(int x, int y, int z) throws MineroyException {
+	public BloqueHierro(int x, int y, int z) throws MineroyException {
 		super(x, y, z);
-		this.material = Bloque.PLANTA;
+		this.material = Bloque.HIERRO;
 	}
-
+	
 	public void destruir (String herramienta, Jugador jugador) {
 		if (!(herramienta.equalsIgnoreCase(HERRAMIENTA))) {
 			super.destruir(herramienta, jugador);
@@ -28,10 +21,10 @@ public class BloquePlanta extends Bloque implements BloqueVegetal{
 		}
 		
 	}
-
+	
 	@Override
 	public String toString() {
-		return super.toString()+", material Bloque Planta: " + material;
+		return super.toString()+", material Bloque Hierro: " + material;
 	}
 
 }

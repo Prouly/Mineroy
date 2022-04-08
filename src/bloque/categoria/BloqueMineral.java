@@ -1,4 +1,4 @@
-package categoria;
+package bloque.categoria;
 
 import juego.Jugador;
 

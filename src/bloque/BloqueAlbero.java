@@ -1,18 +1,17 @@
 package bloque;
 
-import categoria.BloqueTierra;
+import bloque.categoria.BloqueTierra;
 import juego.Jugador;
 
-
-public class BloqueArcilla extends Bloque implements BloqueTierra{
+public class BloqueAlbero extends Bloque implements BloqueTierra{
 	
 	private int material;
 	
-	public BloqueArcilla(int x, int y, int z) throws MineroyException {
+	public BloqueAlbero(int x, int y, int z) throws MineroyException {
 		super(x, y, z);
-		this.material = Bloque.ARCILLA;
+		this.material = Bloque.ALBERO;
 	}
-	
+
 	public void destruir (String herramienta, Jugador jugador) {
 		if (!(herramienta.equalsIgnoreCase(HERRAMIENTA))) {
 			super.destruir(herramienta, jugador);

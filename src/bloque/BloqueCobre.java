@@ -1,15 +1,15 @@
 package bloque;
 
-import categoria.BloqueVegetal;
+import bloque.categoria.BloqueMineral;
 import juego.Jugador;
 
-public class BloqueArbol extends Bloque implements BloqueVegetal {
+public class BloqueCobre extends Bloque implements BloqueMineral{
 	
 	private int material;
-	
-	public BloqueArbol(int x, int y, int z) throws MineroyException {
+
+	public BloqueCobre(int x, int y, int z) throws MineroyException {
 		super(x, y, z);
-		this.material = Bloque.ARBOL;
+		this.material = Bloque.COBRE;
 	}
 	
 	public void destruir (String herramienta, Jugador jugador) {
@@ -20,12 +20,11 @@ public class BloqueArbol extends Bloque implements BloqueVegetal {
 			jugador.sumaMateria(material);
 		}
 		
-
 	}
 
 	@Override
 	public String toString() {
-		return super.toString()+", material Bloque Arbol: " + material;
+		return super.toString()+", material Bloque Cobre: " + material;
 	}
 
 }

@@ -1,30 +1,32 @@
 package bloque;
 
-import categoria.BloqueMineral;
+import bloque.categoria.BloqueTierra;
 import juego.Jugador;
 
-public class BloqueHierro extends Bloque implements BloqueMineral{
+
+public class BloqueArcilla extends Bloque implements BloqueTierra{
 	
 	private int material;
 	
-	public BloqueHierro(int x, int y, int z) throws MineroyException {
+	public BloqueArcilla(int x, int y, int z) throws MineroyException {
 		super(x, y, z);
-		this.material = Bloque.HIERRO;
+		this.material = Bloque.ARCILLA;
 	}
 	
 	public void destruir (String herramienta, Jugador jugador) {
 		if (!(herramienta.equalsIgnoreCase(HERRAMIENTA))) {
 			super.destruir(herramienta, jugador);
 		} else {
-			super.destruir(herramienta, jugador);	 
+			super.destruir(herramienta, jugador); 
 			jugador.sumaMateria(material);
 		}
 		
+
 	}
-	
+
 	@Override
 	public String toString() {
-		return super.toString()+", material Bloque Hierro: " + material;
+		return super.toString()+", material Bloque Tierra: " + material;
 	}
 
 }

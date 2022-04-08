@@ -10,9 +10,9 @@ import bloque.BloqueCobre;
 import bloque.BloqueHierro;
 import bloque.BloquePlanta;
 import bloque.BloqueVacio;
-import categoria.BloqueMineral;
-import categoria.BloqueTierra;
-import categoria.BloqueVegetal;
+import bloque.categoria.BloqueMineral;
+import bloque.categoria.BloqueTierra;
+import bloque.categoria.BloqueVegetal;
 
 /**
  * IES Cristobal de Monroy

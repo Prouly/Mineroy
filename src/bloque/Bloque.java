@@ -1,6 +1,6 @@
-package com.favm.bloque;
+package bloque;
 
-import juego.Jugador;
+import juego.*;
 
 /**
  * Bloque donde se almacena las coordenadas y bloques
