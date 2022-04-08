@@ -1,5 +1,6 @@
+package herramientas;
 
-public class abstract Herramienta {
+public abstract class Herramienta {
 	
 	public static final int USOS_INICIALES = 5;
 	
@@ -9,5 +10,9 @@ public class abstract Herramienta {
 	public static final int ESPADA = 3;
 	
 	private int usosRestantes;
+	
+	public Herramienta() {
+		usosRestantes = USOS_INICIALES;
+	}
 	
 }
