@@ -14,5 +14,9 @@ public abstract class Herramienta {
 	public Herramienta() {
 		usosRestantes = USOS_INICIALES;
 	}
+
+	public int getUsosRestantes() {
+		return usosRestantes;
+	}
 	
 }

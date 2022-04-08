@@ -1,10 +1,14 @@
 package juego;
 
 import bloque.Bloque;
+import bloque.MineroyException;
+import herramientas.Herramienta;
 
 /**
  * Clase que representa el jugador del MineMonroy
  * @author y0rg
+ * Crear Atributo Array de herramientas que tiene el jugador
+ * Crear metodo para craftear la herramienta, añadirla al array de herramientas y restar materiales que ha costado
  *
  */
 public class Jugador {
@@ -68,5 +72,18 @@ public class Jugador {
 		}
 		
 	}
+	
+	/**
+	 * Metodo que crea una herramienta si el jugador tiene los materiales suficientes
+	 * @return Herramienta creada
+	 * @throws MineroyException error al no tener materiales suficientes para crearlo
+	 */
+	public Herramienta crearHerramienta() throws MineroyException{
+		Herramienta herramientaCreada = null;
+		
+		return herramientaCreada;
+	}
+	
+	
 
 }
