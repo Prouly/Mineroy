@@ -1,5 +1,6 @@
 package bloque.categoria;
 
+import herramientas.Herramienta;
 import juego.Jugador;
 
 /**
@@ -12,5 +13,5 @@ import juego.Jugador;
 public interface BloqueVegetal {
 	public static final String HERRAMIENTA ="Hacha";
 	
-	public void destruir (String herramienta, Jugador jugador);
+	public void destruir (Herramienta herramienta, Jugador jugador);
 }
