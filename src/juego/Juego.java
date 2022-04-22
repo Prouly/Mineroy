@@ -13,6 +13,7 @@ import bloque.BloqueVacio;
 import bloque.categoria.BloqueMineral;
 import bloque.categoria.BloqueTierra;
 import bloque.categoria.BloqueVegetal;
+import herramientas.Hacha;
 
 /**
  * IES Cristobal de Monroy
@@ -53,7 +54,7 @@ public class Juego {
 			for (int j= 0; j <TAMANO_MUNDO; j++) {
 				for (int k= 0; k <TAMANO_MUNDO; k++) {
 					//EN este caso solo utiliza el "Hacha"
-					mundo3D[i][j][k].destruir(BloqueTierra.HERRAMIENTA, jugador1);
+					mundo3D[i][j][k].destruir(jugador1.herramientasJugador[0], jugador1);
 				}
 			}
 		}

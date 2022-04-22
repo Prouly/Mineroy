@@ -16,4 +16,6 @@ public class Espada extends Herramienta {
 	public int getTipoHerramienta() {
 		return tipoHerramienta;
 	}
+	
+	
 }

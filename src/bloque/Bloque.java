@@ -1,5 +1,6 @@
 package bloque;
 
+import herramientas.Herramienta;
 import juego.*;
 
 /**
@@ -19,7 +20,8 @@ public abstract class Bloque {
 	public static final int HIERRO = 4;
 	public static final int COBRE = 5;
 	
-	public static final int NUM_MATERIAS = 6; //Pues contamos desde 0.
+	//Cantidad total de Materiales
+	public static final int NUM_MATERIAS = 6; 
 
 	private int x;
 	private int y;
@@ -72,7 +74,7 @@ public abstract class Bloque {
 	 */
 	
 	
-	public void destruir(String herramienta, Jugador jugador) {
+	public void destruir(Herramienta herramienta, Jugador jugador) {
 		
 		setX(-1);
 		setY(-1);

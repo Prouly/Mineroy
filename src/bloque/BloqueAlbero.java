@@ -1,6 +1,7 @@
 package bloque;
 
 import bloque.categoria.BloqueTierra;
+import herramientas.Herramienta;
 import herramientas.Pala;
 import juego.Jugador;
 
@@ -13,20 +14,17 @@ public class BloqueAlbero extends Bloque implements BloqueTierra{
 		this.material = Bloque.ALBERO;
 	}
 
-	public void destruir (Pala herramienta, Jugador jugador) {
-		if (!(herramienta.getTipoHerramienta().equalsIgnoreCase(HERRAMIENTA))) {
-			super.destruir(herramienta, jugador);
-		} else {
-			super.destruir(herramienta, jugador); 
+	public void destruir (Herramienta herramienta, Jugador jugador) {
+		if (herramienta instanceof Pala) {
 			jugador.sumaMateria(material);
 		}
-		
+		super.destruir(herramienta, jugador);
 
 	}
 
 	@Override
 	public String toString() {
-		return super.toString()+", material Bloque Tierra: " + material;
+		return super.toString()+"Tierra: ";
 	}
 
 }

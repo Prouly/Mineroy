@@ -18,6 +18,9 @@ public class Jugador {
 
 	//Lista de materias primas del jugador
 	int[] materiasPrimas = new int[Bloque.NUM_MATERIAS];
+	
+	//Herramientas que tiene el jugador (El jugador nace con las herramientas creadas)
+	Herramienta[] herramientasJugador = new Herramienta[4];
 
 	public Jugador(String nombre) {
 		this.nombre = nombre;

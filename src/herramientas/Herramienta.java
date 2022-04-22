@@ -1,5 +1,7 @@
 package herramientas;
 
+import bloque.MineroyException;
+
 public abstract class Herramienta {
 	
 	public static final int USOS_INICIALES = 5;
@@ -18,5 +20,16 @@ public abstract class Herramienta {
 	public int getUsosRestantes() {
 		return usosRestantes;
 	}
+	
+	public void usarHerramienta() throws MineroyException {
+		if (usosRestantes <=0) {
+			throw new MineroyException("ERROR: La herramienta esta destruida");
+		}
+		
+		usosRestantes--;
+	}
+	
+	public abstract int getTipoHerramienta();
+
 	
 }

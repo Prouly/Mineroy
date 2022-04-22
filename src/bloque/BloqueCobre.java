@@ -1,6 +1,8 @@
 package bloque;
 
 import bloque.categoria.BloqueMineral;
+import herramientas.Herramienta;
+import herramientas.Pico;
 import juego.Jugador;
 
 public class BloqueCobre extends Bloque implements BloqueMineral{
@@ -12,14 +14,12 @@ public class BloqueCobre extends Bloque implements BloqueMineral{
 		this.material = Bloque.COBRE;
 	}
 	
-	public void destruir (String herramienta, Jugador jugador) {
-		if (!(herramienta.equalsIgnoreCase(HERRAMIENTA))) {
-			super.destruir(herramienta, jugador);
-		} else {
-			super.destruir(herramienta, jugador);	 
+	public void destruir (Herramienta herramienta, Jugador jugador) {
+		if (herramienta instanceof Pico) {
 			jugador.sumaMateria(material);
 		}
-		
+		super.destruir(herramienta, jugador);
+
 	}
 
 	@Override
