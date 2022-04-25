@@ -25,7 +25,7 @@ public class BloqueArbol extends Bloque implements BloqueVegetal {
 
 	@Override
 	public String toString() {
-		return super.toString() + ", material Bloque Arbol: " + material;
+		return super.toString() + "Arbol" + material;
 	}
 
 }

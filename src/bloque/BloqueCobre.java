@@ -24,7 +24,7 @@ public class BloqueCobre extends Bloque implements BloqueMineral{
 
 	@Override
 	public String toString() {
-		return super.toString()+", material Bloque Cobre: " + material;
+		return super.toString()+"Cobre: " + material;
 	}
 
 }

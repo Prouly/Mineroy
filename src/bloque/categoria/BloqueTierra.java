@@ -15,4 +15,5 @@ public interface BloqueTierra {
 	public static final String HERRAMIENTA ="Pala";
 	
 	public void destruir (Herramienta herramienta, Jugador jugador);
+	
 }

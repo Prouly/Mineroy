@@ -31,7 +31,7 @@ public class BloquePlanta extends Bloque implements BloqueVegetal{
 
 	@Override
 	public String toString() {
-		return super.toString()+", material Bloque Planta: " + material;
+		return super.toString()+"Planta: " + material;
 	}
 
 }

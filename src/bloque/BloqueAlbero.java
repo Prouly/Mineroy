@@ -13,8 +13,8 @@ public class BloqueAlbero extends Bloque implements BloqueTierra{
 		super(x, y, z);
 		this.material = Bloque.ALBERO;
 	}
-
-	public void destruir (Herramienta herramienta, Jugador jugador) {
+	
+	public void destruir(Herramienta herramienta, Jugador jugador) {
 		if (herramienta instanceof Pala) {
 			jugador.sumaMateria(material);
 		}
@@ -22,9 +22,10 @@ public class BloqueAlbero extends Bloque implements BloqueTierra{
 
 	}
 
+
 	@Override
 	public String toString() {
-		return super.toString()+"Tierra: ";
+		return super.toString()+"Albero: ";
 	}
 
 }
