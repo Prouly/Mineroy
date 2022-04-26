@@ -28,20 +28,11 @@ import herramientas.Hacha;
  */
 public class Juego {
 
-	
-
-
-	
-
-
 	private static Scanner teclado = new Scanner(System.in);
-
 
 	//Indica el tamano del cubo que contendra el mapa que vamos a crear
 	public static final int TAMANO_MUNDO = 10;
-	
 	private static final int NUMERO_BLOQUE_VACIO = (TAMANO_MUNDO*TAMANO_MUNDO*TAMANO_MUNDO)/2;
-
 
 	/**
 	 * Metodo principal, ejecuta el juego
@@ -71,8 +62,7 @@ public class Juego {
 						try {
 							mundo3D[x][y][z] = new BloqueVacio(x, y, z);
 						} catch (MineroyException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							System.out.println(e.getMessage());
 						}
 					}
 				}
@@ -88,6 +78,9 @@ public class Juego {
 
 		//Creamos el jugador
 		Jugador jugador1 = new Jugador(nombreJugador);
+		
+		//El jugador se agrega al mapa
+		agregarJugadorAlMapa(jugador1, mundo3D);
 
 		//Se mostrara el menu del juego
 
@@ -101,17 +94,6 @@ public class Juego {
 				System.out.println(e.getMessage());
 			}
 		} while (opcionMenu != 5);
-
-//		//El Jugador recorre el mapa entero recolectando materias primas (Opcion Desactivada)
-//		for (int x= 0; x <TAMANO_MUNDO; x++) {
-//			for (int y= 0; y <TAMANO_MUNDO; y++) {
-//				for (int z= 0; z <TAMANO_MUNDO; z++) {
-//					//EN este caso solo utiliza el "Hacha"
-//					mundo3D[x][y][z].destruir(jugador1.herramientasJugador[0], jugador1);
-//				}
-//			}
-//		}
-
 
 	}
 	
@@ -236,6 +218,30 @@ public class Juego {
 		return bloque;
 
 	}
+	
+	/**
+	 * Metodo que incluye al jugador en el mapa en el primer BloqueVacio que haya
+	 * @param jugador a agregar
+	 * @param mundo3D mapa donde se agregara el jugador
+	 */
+	public static void agregarJugadorAlMapa(Jugador jugador, Bloque[][][] mundo3D) {
+		
+		boolean agregado = false;
+		
+		for (int x= 0; x <TAMANO_MUNDO || agregado == false; x++) {
+			for (int y= 0; y <TAMANO_MUNDO; y++) {
+				for (int z= 0; z <TAMANO_MUNDO; z++) {
+					//Se agrega el jugador en el primer bloque vacio
+					if (mundo3D[x][y][z] instanceof BloqueVacio) {
+						agregado = true;
+						jugador.posicionarJugadorMapa(x, y, z);
+					}
+				}
+			}
+		}
+		
+	}
+
 
 	/**
 	 * Muestra las opciones del menu devolviendo la opcion elegida por el jugador
@@ -259,19 +265,19 @@ public class Juego {
 	public static int mostrarMover() {
 		int direccionElegida;
 
-		System.out.println("A que direccion te quieres mover?\n1.Izquierda\n2.Derecha\n3.Atras\n4.Arriba\n5.Abajo");
+		System.out.println("A que direccion te quieres mover?\n1.Izquierda\n2.Derecha\n3.Adelante\n4.Atras\n5.Arriba\n6.Abajo");
 		direccionElegida = Integer.parseInt(teclado.nextLine());
 		
 		return direccionElegida;
 	}
-
+	
 	public static void mostrarMapa(Bloque[][][] mundo3d, Jugador jugador) {
 		for (int z =  mundo3d[0][0].length - 1; z >= 0; z--) {
 			System.out.println("\n" + " Capa " + z + " de suelo "+"\n");
 			for (int y = 0; y < mundo3d[0].length; y++) {
 				for (int x = 0; x < mundo3d.length; x++) {
 					if (mundo3d[x][y][z] == mundo3d[jugador.getX()][jugador.getY()][jugador.getZ()]) {
-						System.out.println("| TU |");
+						System.out.println("| JUG |");
 					} else {
 						System.out.print(mundo3d[x][y][z] + " ");
 					}
@@ -300,25 +306,26 @@ public class Juego {
 			switch (direccionMovimiento) {
 
 			case 1:
-
+				jugador.moverIzquierda();
 				break;
 			case 2:
-
+				jugador.moverDerecha();
 				break;
 			case 3:
-
+				jugador.moverAdelante();
 				break;
 			case 4:
-
+				jugador.moverAtras();
 				break;
 			case 5:
-
+				jugador.moverArriba();
 				break;
+			case 6:
+				jugador.moverAbajo();
 			default:
 				throw new MineroyException("Direccion de movimiento erronea");
 
 			}
-
 
 			break;
 		case 2:
@@ -335,11 +342,11 @@ public class Juego {
 			System.out.println(jugador);
 			break;
 		case 4:
-
-			
+			//Muestra todo el Mapa
 			mostrarMapa(mundo3D, jugador);
 			break;
 		case 5:
+			//Salir del Juego
 			System.out.println("Gracias por jugar a Mineroy!");
 			break;
 		default:
