@@ -59,7 +59,7 @@ public class Juego {
 		for (int x= 0; x <TAMANO_MUNDO; x++) {
 			for (int y= 0; y <TAMANO_MUNDO; y++) {
 				for (int z= 2; z <TAMANO_MUNDO; z++) {
-					if (Bloque.bloqueLleno == (TAMANO_MUNDO*DIMENSION_MUNDO) /2) {
+					if (Bloque.bloqueLleno < ((TAMANO_MUNDO*DIMENSION_MUNDO) /2)) {
 						mundo3D[x][y][z] = generaBloqueAleatorio(x,y,z);
 					} else {
 						try {
@@ -76,7 +76,7 @@ public class Juego {
 		System.out.println("* Mundo Generado *");
 
 		//El usuario introduce su nombre para crear el jugador
-		System.out.println("Como se llamar� tu jugador?");
+		System.out.println("¿Como se llamara tu jugador?");
 		String nombreJugador = teclado.nextLine();
 
 		//Creamos el jugador
