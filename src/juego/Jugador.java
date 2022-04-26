@@ -1,6 +1,5 @@
 package juego;
 
-
 import bloque.Bloque;
 import bloque.MineroyException;
 import herramientas.Espada;
@@ -110,6 +109,7 @@ public class Jugador {
 		
 	}
 	
+	//Getter y Setter de Atributos que indican la posicion del jugador
 	public int getX() {
 		return x;
 	}
@@ -171,6 +171,8 @@ public class Jugador {
 
 	}
 	
+	//TODO En los metodos de mover jugador falta crear que salte excepcion si el bloque al q se va a mover no es vacio
+	
 	public void moverDerecha() {
 		int posicionX;
 		
@@ -180,7 +182,7 @@ public class Jugador {
 	}
 	
 	public void moverIzquierda() {
-		int posicionX, posicionY, posicionZ;
+		int posicionX;
 		
 		posicionX = this.x - MOVIMIENTOS_TURNO;
 		setX(posicionX);
@@ -224,8 +226,5 @@ public class Jugador {
 		setY(y);
 		setZ(z);
 	}
-	
-	
-	
 
 }
