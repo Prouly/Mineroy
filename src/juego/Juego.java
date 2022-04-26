@@ -100,13 +100,20 @@ public class Juego {
 
 	}
 	
+	/**
+	 * Metodo para generar bloques aleatorios (No vacios) en las capas 0 y 1
+	 * @param x int coordenada x
+	 * @param y int coordenada y
+	 * @param z int coordenada z
+	 * @return BloqueTipoNoVacio generado
+	 */
 	public static Bloque generaBloqueAleatorioSuelo(int x, int y, int z) {
 
 		Bloque bloque = null;
 		Random rd = new Random();
 
-		//Ponemos el numero de materias +2, se sale del rango (default)
-		//para que los casos +1 y +2 que no estan contemplados, generen bloques vacios
+		//Ponemos el numero de materias -1 ya que una de las materias no se genera (Bloque Animal)
+		//No se generan bloques vacios
 		int tipo = rd.nextInt(Bloque.NUM_MATERIAS-1);
 
 		try {
@@ -167,7 +174,7 @@ public class Juego {
 
 		//Ponemos el numero de materias +2, se sale del rango (default)
 		//para que los casos +1 y +2 que no estan contemplados, generen bloques vacios
-		int tipo = rd.nextInt(Bloque.NUM_MATERIAS);
+		int tipo = rd.nextInt(Bloque.NUM_MATERIAS+2);
 
 		try {
 			switch (tipo) {
@@ -274,6 +281,11 @@ public class Juego {
 		return direccionElegida;
 	}
 	
+	/**
+	 * Metodo que mostrara los bloques generados en mundo3d que hay en todo el mapa y al jugador
+	 * @param mundo3d
+	 * @param jugador
+	 */
 	public static void mostrarMapa(Bloque[][][] mundo3d, Jugador jugador) {
 		for (int z =  mundo3d[0][0].length - 1; z >= 0; z--) {
 			System.out.println("\n" + " Capa " + z + " de suelo "+"\n");
