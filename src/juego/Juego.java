@@ -173,7 +173,7 @@ public class Juego {
 			System.out.println("\n" + x +"\n");
 			for (int y = 0; y < mundo3d[0].length; y++) {
 				for (int z = 0; z < mundo3d.length; z++) {
-					System.out.println(mundo3d[x][y][z]);
+					System.out.print(mundo3d[x][y][z]);
 				}
 			}
 		}
