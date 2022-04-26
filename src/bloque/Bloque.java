@@ -19,7 +19,7 @@ public abstract class Bloque {
 	public static final int ALBERO = 3;
 	public static final int HIERRO = 4;
 	public static final int COBRE = 5;
-	//Nueva material a�adida
+	//Nueva material agregado
 	public static final int CARNE = 6;
 	
 	//Cantidad total de Materiales

@@ -65,18 +65,17 @@ public class Juego {
 						try {
 							mundo3D[x][y][z] = new BloqueVacio(x, y, z);
 						} catch (MineroyException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							System.out.println(e.getMessage());
 						}
 					}
 				}
 			}
 		}
-		//Despues de generarse el mundo ramdon da mensaje de bienvenida que indica se ha creado el mapa
+		//Despues de generarse el mundo aleatorio da mensaje de bienvenida que indica se ha creado el mapa
 		System.out.println("* Mundo Generado *");
 
 		//El usuario introduce su nombre para crear el jugador
-		System.out.println("Como se llamar� tu jugador?");
+		System.out.println("Como se llamara tu jugador?");
 		String nombreJugador = teclado.nextLine();
 
 		//Creamos el jugador
@@ -95,61 +94,56 @@ public class Juego {
 			}
 		} while (opcionMenu != 5);
 
-//		//El Jugador recorre el mapa entero recolectando materias primas (Opcion Desactivada)
-//		for (int x= 0; x <TAMANO_MUNDO; x++) {
-//			for (int y= 0; y <TAMANO_MUNDO; y++) {
-//				for (int z= 0; z <TAMANO_MUNDO; z++) {
-//					//EN este caso solo utiliza el "Hacha"
-//					mundo3D[x][y][z].destruir(jugador1.herramientasJugador[0], jugador1);
-//				}
-//			}
-//		}
-
-
 	}
 	
+	/**
+	 * Metodo para generar los bloques ocuparan las capas 0 y 1 del suelo y que nunca pondran ser Bloques Vacios
+	 * @param x coordenada 
+	 * @param y coordenada
+	 * @param z coordenada
+	 * @return bloque generado aleatoriamente no vacio
+	 */
 	public static Bloque generaBloqueAleatorioSuelo(int x, int y, int z) {
 
 		Bloque bloque = null;
 		Random rd = new Random();
 
-		//Ponemos el numero de materias +2, se sale del rango (default)
-		//para que los casos +1 y +2 que no estan contemplados, generen bloques vacios
+		//Ponemos el numero de materias -1, generando unicamente bloques de tipo no vacio
+		//cuando se genera un bloque se suma uno a la variable estatica de bloque con la cantidad total de bloques generados.
 		int tipo = rd.nextInt(Bloque.NUM_MATERIAS-1);
 
 		try {
 			switch (tipo) {
-			case Bloque.ALBERO: {
-				bloque = new BloqueAlbero(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.ARBOL: {
-				bloque = new BloqueArbol(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.ARCILLA: {
-				bloque = new BloqueArcilla(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.COBRE: {
-				bloque = new BloqueCobre(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.HIERRO: {
-				bloque = new BloqueHierro(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.PLANTA: {
-				bloque = new BloquePlanta(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-
+				case Bloque.ALBERO: {
+					bloque = new BloqueAlbero(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.ARBOL: {
+					bloque = new BloqueArbol(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.ARCILLA: {
+					bloque = new BloqueArcilla(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.COBRE: {
+					bloque = new BloqueCobre(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.HIERRO: {
+					bloque = new BloqueHierro(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.PLANTA: {
+					bloque = new BloquePlanta(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
 
 			}
 
@@ -160,9 +154,8 @@ public class Juego {
 
 	}
 
-
 	/**
-	 * Metodo para generar bloques de tipo aleatorio
+	 * Metodo para generar bloques de tipo aleatorio incluido bloque aleatorio
 	 * @param x posicion x en la que se encuentra el bloque
 	 * @param y posicion y en la que se encuentra el bloque
 	 * @param z posicion z en la que se encuentra el bloque
@@ -175,7 +168,7 @@ public class Juego {
 
 		//Ponemos el numero de materias +2, se sale del rango (default)
 		//para que los casos +1 y +2 que no estan contemplados, generen bloques vacios
-		int tipo = rd.nextInt(Bloque.NUM_MATERIAS);
+		int tipo = rd.nextInt(Bloque.NUM_MATERIAS+1);
 
 		try {
 			switch (tipo) {
@@ -239,7 +232,7 @@ public class Juego {
 
 	/**
 	 * Muestra las direcciones a las que puede moverse el jugador
-	 * @return devuelve la direccion elegida
+	 * @return devuelve int que indica la direccion elegida
 	 */
 	public static int mostrarMover() {
 		int direccionElegida;
