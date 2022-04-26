@@ -24,6 +24,8 @@ public abstract class Bloque {
 	
 	//Cantidad total de Materiales
 	public static final int NUM_MATERIAS = 7; 
+	
+	public static int bloqueLleno = 0;
 
 	private int x;
 	private int y;

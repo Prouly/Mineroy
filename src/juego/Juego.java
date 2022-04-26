@@ -27,6 +27,9 @@ import herramientas.Hacha;
  */
 public class Juego {
 
+	private static final int DIMENSION_MUNDO = 3;
+
+
 	private static Scanner teclado = new Scanner(System.in);
 
 
@@ -42,11 +45,30 @@ public class Juego {
 		//Creamos el mapa del juego
 		Bloque[][][] mundo3D = new Bloque[TAMANO_MUNDO][TAMANO_MUNDO][TAMANO_MUNDO];
 
+		
 		//Lo rellenamos de bloques aleatorios de cualquier tipo, incluso tipo Bloque (vacio)
 		for (int x= 0; x <TAMANO_MUNDO; x++) {
 			for (int y= 0; y <TAMANO_MUNDO; y++) {
-				for (int z= 0; z <TAMANO_MUNDO; z++) {
-					mundo3D[x][y][z] = generaBloqueAleatorio(x,y,z);
+				for (int z= 0; z < 2; z++) {
+					mundo3D[x][y][z] = generaBloqueAleatorioSuelo(x,y,z);
+				}
+			}
+		}
+		
+		//Lo rellenamos de bloques aleatorios de cualquier tipo, incluso tipo Bloque (vacio)
+		for (int x= 0; x <TAMANO_MUNDO; x++) {
+			for (int y= 0; y <TAMANO_MUNDO; y++) {
+				for (int z= 2; z <TAMANO_MUNDO; z++) {
+					if (Bloque.bloqueLleno == (TAMANO_MUNDO*DIMENSION_MUNDO) /2) {
+						mundo3D[x][y][z] = generaBloqueAleatorio(x,y,z);
+					} else {
+						try {
+							mundo3D[x][y][z] = new BloqueVacio(x, y, z);
+						} catch (MineroyException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
 				}
 			}
 		}
@@ -85,6 +107,58 @@ public class Juego {
 
 
 	}
+	
+	public static Bloque generaBloqueAleatorioSuelo(int x, int y, int z) {
+
+		Bloque bloque = null;
+		Random rd = new Random();
+
+		//Ponemos el numero de materias +2, se sale del rango (default)
+		//para que los casos +1 y +2 que no estan contemplados, generen bloques vacios
+		int tipo = rd.nextInt(Bloque.NUM_MATERIAS-1);
+
+		try {
+			switch (tipo) {
+			case Bloque.ALBERO: {
+				bloque = new BloqueAlbero(x, y, z);
+				Bloque.bloqueLleno ++;
+				break;
+			}
+			case Bloque.ARBOL: {
+				bloque = new BloqueArbol(x, y, z);
+				Bloque.bloqueLleno ++;
+				break;
+			}
+			case Bloque.ARCILLA: {
+				bloque = new BloqueArcilla(x, y, z);
+				Bloque.bloqueLleno ++;
+				break;
+			}
+			case Bloque.COBRE: {
+				bloque = new BloqueCobre(x, y, z);
+				Bloque.bloqueLleno ++;
+				break;
+			}
+			case Bloque.HIERRO: {
+				bloque = new BloqueHierro(x, y, z);
+				Bloque.bloqueLleno ++;
+				break;
+			}
+			case Bloque.PLANTA: {
+				bloque = new BloquePlanta(x, y, z);
+				Bloque.bloqueLleno ++;
+				break;
+			}
+
+
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return bloque;
+
+	}
 
 
 	/**
@@ -101,32 +175,38 @@ public class Juego {
 
 		//Ponemos el numero de materias +2, se sale del rango (default)
 		//para que los casos +1 y +2 que no estan contemplados, generen bloques vacios
-		int tipo = rd.nextInt(Bloque.NUM_MATERIAS+2);
+		int tipo = rd.nextInt(Bloque.NUM_MATERIAS);
 
 		try {
 			switch (tipo) {
 			case Bloque.ALBERO: {
 				bloque = new BloqueAlbero(x, y, z);
+				Bloque.bloqueLleno ++;
 				break;
 			}
 			case Bloque.ARBOL: {
 				bloque = new BloqueArbol(x, y, z);
+				Bloque.bloqueLleno ++;
 				break;
 			}
 			case Bloque.ARCILLA: {
 				bloque = new BloqueArcilla(x, y, z);
+				Bloque.bloqueLleno ++;
 				break;
 			}
 			case Bloque.COBRE: {
 				bloque = new BloqueCobre(x, y, z);
+				Bloque.bloqueLleno ++;
 				break;
 			}
 			case Bloque.HIERRO: {
 				bloque = new BloqueHierro(x, y, z);
+				Bloque.bloqueLleno ++;
 				break;
 			}
 			case Bloque.PLANTA: {
 				bloque = new BloquePlanta(x, y, z);
+				Bloque.bloqueLleno ++;
 				break;
 			}
 			default: {
@@ -171,10 +251,10 @@ public class Juego {
 	}
 
 	public static void mostrarMapa(Bloque[][][] mundo3d) {
-		for (int x = 0; x < mundo3d[0][0].length; x++) {
-			System.out.println("\n" + " Capa " + x + " de suelo "+"\n");
+		for (int z =  mundo3d[0][0].length - 1; z >= 0; z--) {
+			System.out.println("\n" + " Capa " + z + " de suelo "+"\n");
 			for (int y = 0; y < mundo3d[0].length; y++) {
-				for (int z = 0; z < mundo3d.length; z++) {
+				for (int x = 0; x < mundo3d.length; x++) {
 					System.out.print(mundo3d[x][y][z] + " ");
 				}
 				System.out.println();
