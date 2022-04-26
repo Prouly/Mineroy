@@ -220,14 +220,16 @@ public class Juego {
 	public static boolean agregarJugadorAlMapa(Jugador jugador, Bloque[][][] mundo3D) {
 		boolean agregado = false;
 		
-		for (int x= 0; x <TAMANO_MUNDO || agregado == false; x++) {
-			if (mundo3D[x] instanceof BloqueVacio) {
-				mundo3D[x] = jugador;
-				agregado = true;
+		for (int x = 0; x <TAMANO_MUNDO || agregado == false; x++) {
+			for (int y = 0; y < TAMANO_MUNDO; y++) {
+				for (int z = 0; z < TAMANO_MUNDO; z++) {
+					if (mundo3D[x][y][z] instanceof BloqueVacio[][][]) {
+						agregado = true;
+						jugador.posicionarJugadorMapa(x, y, z);
+					}
+				}
 			}
 		}
-
-
 		return agregado;
 	}
 
@@ -280,41 +282,43 @@ public class Juego {
 	public static void tratarMenu(int opcionMenu, Jugador jugador, Bloque[][][] mundo3D) throws MineroyException {
 
 		switch (opcionMenu) {
-
+		
+		//Mover Jugador
 		case 1:
-			//Se solicita la direccion a donde moverse y si se introduce una correcta se mueve en el mapa
+			//Se solicita la direccion a donde moverse y si se introduce una correcta el jugador se desplaza una posicion en la direccion indicada
 			int direccionMovimiento;
 			direccionMovimiento=mostrarMover();
 
 			switch (direccionMovimiento) {
 
 			case 1:
-
+				jugador.moverIzquierda();
 				break;
 			case 2:
-
+				jugador.moverDerecha();
 				break;
 			case 3:
-
+				jugador.moverAdelante();
 				break;
 			case 4:
-
+				jugador.moverAtras();
 				break;
 			case 5:
-
+				jugador.moverArriba();
 				break;
 			case 6:
-
+				jugador.moverAbajo();
 				break;
 			default:
 				throw new MineroyException("Direccion de movimiento erronea");
 
 			}
 
-
 			break;
+		
+		//Se crean todas las herramientas si el jugador tiene materiales suficientes
 		case 2:
-			//Se crean todas las herramientas si el jugador tiene materiales suficientes
+			
 			try {
 				jugador.crearHerramientas();
 			} catch (MineroyException e) {
@@ -322,14 +326,19 @@ public class Juego {
 
 			}
 			break;
+			
+		//Mostramos todos los datos del jugador
 		case 3:
-			//Mostramos todos los datos del jugador
 			System.out.println(jugador);
 			break;
+			
+		//Opcion secreta para mostrar todo el mapa
 		case 4:
-			//Opcion secreta para mostrar todo el mapa
+			
 			mostrarMapa(mundo3D);
 			break;
+			
+		//Salir	
 		case 5:
 			System.out.println("Gracias por jugar a Mineroy!");
 			break;

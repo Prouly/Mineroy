@@ -211,12 +211,18 @@ public class Jugador {
 		
 	}
 	
-	public void moverAbajo(double movimiento) {
+	public void moverAbajo() {
 		int posicionZ;
 		
 		posicionZ = this.z - MOVIMIENTOS_TURNO;
 		setZ(posicionZ);
 		
+	}
+	
+	public void posicionarJugadorMapa(int x, int y, int z) {
+		setX(x);
+		setY(y);
+		setZ(z);
 	}
 	
 	
