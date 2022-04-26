@@ -51,10 +51,10 @@ public class Juego {
 			}
 		}
 		//Despues de generarse el mundo ramdon da mensaje de bienvenida que indica se ha creado el mapa
-		System.out.println("¡Mundo Generado!");
+		System.out.println("ï¿½Mundo Generado!");
 		
 		//El usuario introduce su nombre para crear el jugador
-		System.out.println("¿Como se llamará tu jugador?");
+		System.out.println("ï¿½Como se llamarï¿½ tu jugador?");
 		String nombreJugador = teclado.nextLine();
 		
 		//Creamos el jugador
@@ -66,7 +66,11 @@ public class Juego {
 		
 		do {
 			opcionMenu = mostrarMenu();
-			tratarMenu(opcionMenu, jugador1);
+			try {
+				tratarMenu(opcionMenu, jugador1,mundo3D);
+			} catch (MineroyException e) {
+				System.out.println(e.getMessage());
+			}
 		} while (opcionMenu != 5);
 		
 //		//El Jugador recorre el mapa entero recolectando materias primas (Opcion Desactivada)
@@ -79,7 +83,6 @@ public class Juego {
 //			}
 //		}
 		
-
 
 	}
 
@@ -156,28 +159,64 @@ public class Juego {
 	 * Muestra las direcciones a las que puede moverse el jugador
 	 * @return devuelve la direccion elegida
 	 */
-	public static String mostrarMover() {
-		String direccionElegida;
+	public static int mostrarMover() {
+		int direccionElegida;
 		
-		System.out.println("¿A que direccion te quieres mover? (Izquierda, Derecha, Atras, Arriba o Abajo");
-		direccionElegida = teclado.nextLine();
+		System.out.println("A que direccion te quieres mover? \n1.Izquierda\n2.Derecha\n3.Atras\n4.Arriba\n5.Abajo");
+		direccionElegida = Integer.parseInt(teclado.nextLine());
 		
 		return direccionElegida;
+	}
+	
+	public static void mostrarMapa(Bloque[][][] mundo3d) {
+		for (int x = 0; x < mundo3d[0][0].length; x++) {
+			System.out.println("\n" + x +"\n");
+			for (int y = 0; y < mundo3d[0].length; y++) {
+				for (int z = 0; z < mundo3d.length; z++) {
+					System.out.println(mundo3d[x][y][z]);
+				}
+			}
+		}
 	}
 	
 	/**
 	 * Recoge dos parametros tratando la opcion deseada por el jugador
 	 * @param opcionMenu int con la opcion elegida por el jugador
 	 * @param jugador objeto jugador
+	 * @throws MineroyException 
 	 */
-	public static void tratarMenu(int opcionMenu, Jugador jugador) {
+	public static void tratarMenu(int opcionMenu, Jugador jugador, Bloque[][][] mundo3D) throws MineroyException {
 		
 		switch (opcionMenu) {
+		
 		case 1:
 			//Se solicita la direccion a donde moverse y si se introduce una correcta se mueve en el mapa
-			String direccion=mostrarMover();
+			int direccionMovimiento;
+			direccionMovimiento=mostrarMover();
 			
+			switch (direccionMovimiento) {
 			
+			case 1:
+				
+				break;
+			case 2:
+				
+				break;
+			case 3:
+				
+				break;
+			case 4:
+				
+				break;
+			case 5:
+				
+				break;
+			default:
+				throw new MineroyException("Direccion de movimiento erronea");
+				
+			}
+			
+		
 			break;
 		case 2:
 			//Se crean todas las herramientas si el jugador tiene materiales suficientes
@@ -194,13 +233,13 @@ public class Juego {
 			break;
 		case 4:
 			//Opcion secreta para mostrar todo el mapa
+			mostrarMapa(mundo3D);
 			break;
 		case 5:
-			System.out.println("¡Gracias por jugar a Mineroy!");
+			System.out.println("ï¿½Gracias por jugar a Mineroy!");
 			break;
 		default:
-			System.out.println("ERROR: Has elegido una opcion incorrecta.\nVolviendo a mostrar menu...\n");
-			break;
+			throw new MineroyException("ERROR: Has elegido una opcion incorrecta.\\nVolviendo a mostrar menu...\\n");
 		}
 	}
 

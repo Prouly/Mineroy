@@ -25,7 +25,7 @@ public class BloqueHierro extends Bloque implements BloqueMineral{
 	
 	@Override
 	public String toString() {
-		return super.toString()+"Hierro: " + material;
+		return super.toString()+"|Hierro|";
 	}
 
 }

@@ -10,7 +10,7 @@ public class BloqueVacio extends Bloque {
 	
 	@Override
 	public String toString() {
-		return super.toString()+", Bloque vacio";
+		return "|\t|";
 	}
 
 }

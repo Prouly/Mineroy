@@ -19,7 +19,7 @@ public abstract class Bloque {
 	public static final int ALBERO = 3;
 	public static final int HIERRO = 4;
 	public static final int COBRE = 5;
-	//Nueva material añadida
+	//Nueva material aï¿½adida
 	public static final int CARNE = 6;
 	
 	//Cantidad total de Materiales
@@ -85,7 +85,7 @@ public abstract class Bloque {
 
 	@Override
 	public String toString() {
-		return "Bloque: Coordenada x: " + x + ", Coordenada y: " + y + ", Coordenada z: " + z;
+		return "" + z;
 	}
 
 	@Override
