@@ -54,16 +54,11 @@ public class Juego {
 		System.out.println("�Mundo Generado!");
 		
 		//El usuario introduce su nombre para crear el jugador
-		System.out.println("�Como se llamará el jugador 1?");
-		String nombreJugador1 = teclado.nextLine();
+		System.out.println("�Como se llamar� tu jugador?");
+		String nombreJugador = teclado.nextLine();
 		
-		//Creamos el jugador 1 y el jugador 2
-		Jugador jugador1 = new Jugador(nombreJugador1);
-		
-		System.out.println("�Como se llamará el jugador 2?");
-		String nombreJugador2 = teclado.nextLine();
-		
-		Jugador jugador2 = new Jugador (nombreJugador2);
+		//Creamos el jugador
+		Jugador jugador1 = new Jugador(nombreJugador);
 		
 		//Se mostrara el menu del juego
 		
