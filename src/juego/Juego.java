@@ -214,6 +214,22 @@ public class Juego {
 		return bloque;
 
 	}
+	
+	//Generar metodo que recorra el array e inserte en el mapa al jugador en el primer bloque vacio que encuentre
+	
+	public static boolean agregarJugadorAlMapa(Jugador jugador, Bloque[][][] mundo3D) {
+		boolean agregado = false;
+		
+		for (int x= 0; x <TAMANO_MUNDO || agregado == false; x++) {
+			if (mundo3D[x] instanceof BloqueVacio) {
+				mundo3D[x] = jugador;
+				agregado = true;
+			}
+		}
+
+
+		return agregado;
+	}
 
 	/**
 	 * Muestra las opciones del menu devolviendo la opcion elegida por el jugador
@@ -237,7 +253,7 @@ public class Juego {
 	public static int mostrarMover() {
 		int direccionElegida;
 
-		System.out.println("A que direccion te quieres mover?\n1.Izquierda\n2.Derecha\n3.Atras\n4.Arriba\n5.Abajo");
+		System.out.println("A que direccion te quieres mover?\n1.Izquierda\n2.Derecha\n3.Adelante\n4.Atras\n5.Arriba\n6.Abajo");
 		direccionElegida = Integer.parseInt(teclado.nextLine());
 		
 		return direccionElegida;
@@ -285,6 +301,9 @@ public class Juego {
 
 				break;
 			case 5:
+
+				break;
+			case 6:
 
 				break;
 			default:
