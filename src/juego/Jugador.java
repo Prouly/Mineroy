@@ -58,7 +58,7 @@ public class Jugador {
 	 * Muestra el nombre del jugador, las materias que tiene recolectadas, su posicion en el mapa y las herramientas
 	 */
 	public String toString() {
-		return this.nombre + " - Materias primas recolectadas\n" + "Plantas: " + materiasPrimas[Bloque.PLANTA] + "\nArboles: "
+		return this.nombre + "\n- Materias primas recolectadas:\n" + "Plantas: " + materiasPrimas[Bloque.PLANTA] + "\nArboles: "
 				+ materiasPrimas[Bloque.ARBOL] + "\nArcilla: " + materiasPrimas[Bloque.ARCILLA] + "\nAlbero: "
 				+ materiasPrimas[Bloque.ALBERO] + "\nHierro: " + materiasPrimas[Bloque.HIERRO] + "\nCobre: " + materiasPrimas[Bloque.COBRE]
 						+ "\n- Herramientas (usos restantes):\nHacha: "+ herramientasJugador[Herramienta.HACHA].getUsosRestantes()
