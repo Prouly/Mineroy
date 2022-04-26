@@ -265,12 +265,17 @@ public class Juego {
 		return direccionElegida;
 	}
 
-	public static void mostrarMapa(Bloque[][][] mundo3d) {
+	public static void mostrarMapa(Bloque[][][] mundo3d, Jugador jugador) {
 		for (int z =  mundo3d[0][0].length - 1; z >= 0; z--) {
 			System.out.println("\n" + " Capa " + z + " de suelo "+"\n");
 			for (int y = 0; y < mundo3d[0].length; y++) {
 				for (int x = 0; x < mundo3d.length; x++) {
-					System.out.print(mundo3d[x][y][z] + " ");
+					if (mundo3d[x][y][z] == mundo3d[jugador.getX()][jugador.getY()][jugador.getZ()]) {
+						System.out.println("| TU |");
+					} else {
+						System.out.print(mundo3d[x][y][z] + " ");
+					}
+					
 				}
 				System.out.println();
 			}
@@ -339,7 +344,7 @@ public class Juego {
 		//Opcion secreta para mostrar todo el mapa
 		case 4:
 			
-			mostrarMapa(mundo3D);
+			mostrarMapa(mundo3D, jugador);
 			break;
 			
 		//Salir	
