@@ -25,7 +25,7 @@ public class BloqueArcilla extends Bloque implements BloqueTierra{
 
 	@Override
 	public String toString() {
-		return "|Arcilla|";
+		return "| arc |";
 	}
 
 }

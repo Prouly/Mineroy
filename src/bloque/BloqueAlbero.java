@@ -25,7 +25,7 @@ public class BloqueAlbero extends Bloque implements BloqueTierra{
 
 	@Override
 	public String toString() {
-		return "|Albero|";
+		return "| alb |";
 	}
 
 }
