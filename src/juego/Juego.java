@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import bloque.Bloque;
 import bloque.BloqueAlbero;
+import bloque.BloqueAnimal;
 import bloque.BloqueArbol;
 import bloque.BloqueArcilla;
 import bloque.BloqueCobre;
@@ -27,7 +28,10 @@ import herramientas.Hacha;
  */
 public class Juego {
 
-	private static final int DIMENSION_MUNDO = 3;
+	
+
+
+	
 
 
 	private static Scanner teclado = new Scanner(System.in);
@@ -35,6 +39,8 @@ public class Juego {
 
 	//Indica el tamano del cubo que contendra el mapa que vamos a crear
 	public static final int TAMANO_MUNDO = 10;
+	
+	private static final int NUMERO_BLOQUE_VACIO = (TAMANO_MUNDO*TAMANO_MUNDO*TAMANO_MUNDO)/2;
 
 
 	/**
@@ -59,7 +65,7 @@ public class Juego {
 		for (int x= 0; x <TAMANO_MUNDO; x++) {
 			for (int y= 0; y <TAMANO_MUNDO; y++) {
 				for (int z= 2; z <TAMANO_MUNDO; z++) {
-					if (Bloque.bloqueLleno < ((TAMANO_MUNDO*DIMENSION_MUNDO) /2)) {
+					if (Bloque.bloqueLleno <= NUMERO_BLOQUE_VACIO) {
 						mundo3D[x][y][z] = generaBloqueAleatorio(x,y,z);
 					} else {
 						try {
@@ -72,6 +78,7 @@ public class Juego {
 				}
 			}
 		}
+		
 		//Despues de generarse el mundo ramdon da mensaje de bienvenida que indica se ha creado el mapa
 		System.out.println("* Mundo Generado *");
 
@@ -208,6 +215,14 @@ public class Juego {
 				bloque = new BloquePlanta(x, y, z);
 				Bloque.bloqueLleno ++;
 				break;
+			}
+			case Bloque.CARNE: {
+				if (Bloque.bloqueAnimal == 0) {
+					bloque = new BloqueAnimal (x,y,z);
+					Bloque.bloqueAnimal++;
+				} else {
+					bloque = new BloqueVacio(x, y, z);
+				}
 			}
 			default: {
 				bloque = new BloqueVacio(x, y, z);

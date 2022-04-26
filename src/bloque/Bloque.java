@@ -26,6 +26,7 @@ public abstract class Bloque {
 	public static final int NUM_MATERIAS = 7; 
 	
 	public static int bloqueLleno = 0;
+	public static int bloqueAnimal = 0;
 
 	private int x;
 	private int y;
