@@ -170,7 +170,7 @@ public class Juego {
 
 	public static void mostrarMapa(Bloque[][][] mundo3d) {
 		for (int x = 0; x < mundo3d[0][0].length; x++) {
-			System.out.println("\n" + x +"\n");
+			System.out.print("\n" + x +"\n");
 			for (int y = 0; y < mundo3d[0].length; y++) {
 				for (int z = 0; z < mundo3d.length; z++) {
 					System.out.print(mundo3d[x][y][z]);
