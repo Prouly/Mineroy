@@ -10,13 +10,15 @@ import herramientas.Pico;
 
 /**
  * Clase que representa el jugador del MineMonroy
- * @author y0rg
+ * @author y0rg, 4lv4r0 y Fr4n
  * Crear Atributo Array de herramientas que tiene el jugador
  * Crear metodo para craftear la herramienta, añadirla al array de herramientas y restar materiales que ha costado
  *
  */
 public class Jugador {
 	
+	private static final int MOVIMIENTOS_TURNO = 1;
+
 	//Nombre del jugador
 	String nombre;
 
@@ -26,6 +28,10 @@ public class Jugador {
 	//Herramientas que tiene el jugador (El jugador nace con las herramientas creadas)
 	Herramienta[] herramientasJugador = new Herramienta[4];
 	
+	//Posicion donde se encuentra el jugador
+	private int x;
+	private int y;
+	private int z;
 	
 	/**
 	 * Se crea jugador con materias Primas a 0 y con todas las herramientas creadas con 5 usos cada una
@@ -41,6 +47,11 @@ public class Jugador {
 		this.herramientasJugador[Herramienta.PALA] = new Pala();
 		this.herramientasJugador[Herramienta.PICO] = new Pico();
 		this.herramientasJugador[Herramienta.ESPADA] = new Espada();
+		
+		//Al crear el jugador se posiciona fuera de coordenadas del mapa
+		this.x = -1;
+		this.y = -1;
+		this.z = -1;
 	}
 
 	/**
@@ -98,6 +109,31 @@ public class Jugador {
 		
 	}
 	
+	//Getter y Setter de Atributos que indican la posicion del jugador
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getZ() {
+		return z;
+	}
+
+	public void setZ(int z) {
+		this.z = z;
+	}
+
 	/**
 	 * Metodo que crea todas las herramientas si el jugador tiene los materiales suficientes
 	 * @throws MineroyException error al no tener materiales suficientes para crearlo
@@ -135,5 +171,60 @@ public class Jugador {
 
 	}
 	
+	//TODO En los metodos de mover jugador falta crear que salte excepcion si el bloque al q se va a mover no es vacio
+	
+	public void moverDerecha() {
+		int posicionX;
+		
+		posicionX = this.x + MOVIMIENTOS_TURNO;
+		setX(posicionX);
+			
+	}
+	
+	public void moverIzquierda() {
+		int posicionX;
+		
+		posicionX = this.x - MOVIMIENTOS_TURNO;
+		setX(posicionX);
+		
+	}
+	
+	public void moverAdelante() {
+		int posicionY;
+		
+		posicionY = this.y + MOVIMIENTOS_TURNO;
+		setZ(posicionY);
+		
+	}
+	
+	public void moverAtras() {
+		int posicionY;
+		
+		posicionY = this.y - MOVIMIENTOS_TURNO;
+		setY(posicionY);
+		
+	}
+	
+	public void moverArriba() {
+		int posicionZ;
+		
+		posicionZ = this.z + MOVIMIENTOS_TURNO;
+		setZ(posicionZ);
+		
+	}
+	
+	public void moverAbajo() {
+		int posicionZ;
+		
+		posicionZ = this.z - MOVIMIENTOS_TURNO;
+		setZ(posicionZ);
+		
+	}
+	
+	public void posicionarJugadorMapa(int x, int y, int z) {
+		setX(x);
+		setY(y);
+		setZ(z);
+	}
 
 }
