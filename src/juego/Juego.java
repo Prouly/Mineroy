@@ -26,14 +26,14 @@ import herramientas.Hacha;
  * @version 1.1
  */
 public class Juego {
-	
+
 	private static Scanner teclado = new Scanner(System.in);
 
-	
+
 	//Indica el tamano del cubo que contendra el mapa que vamos a crear
 	public static final int TAMANO_MUNDO = 10;
 
-	
+
 	/**
 	 * Metodo principal, ejecuta el juego
 	 */
@@ -41,7 +41,7 @@ public class Juego {
 
 		//Creamos el mapa del juego
 		Bloque[][][] mundo3D = new Bloque[TAMANO_MUNDO][TAMANO_MUNDO][TAMANO_MUNDO];
-		
+
 		//Lo rellenamos de bloques aleatorios de cualquier tipo, incluso tipo Bloque (vacio)
 		for (int x= 0; x <TAMANO_MUNDO; x++) {
 			for (int y= 0; y <TAMANO_MUNDO; y++) {
@@ -52,18 +52,18 @@ public class Juego {
 		}
 		//Despues de generarse el mundo ramdon da mensaje de bienvenida que indica se ha creado el mapa
 		System.out.println("�Mundo Generado!");
-		
+
 		//El usuario introduce su nombre para crear el jugador
 		System.out.println("�Como se llamar� tu jugador?");
 		String nombreJugador = teclado.nextLine();
-		
+
 		//Creamos el jugador
 		Jugador jugador1 = new Jugador(nombreJugador);
-		
+
 		//Se mostrara el menu del juego
-		
+
 		int opcionMenu;
-		
+
 		do {
 			opcionMenu = mostrarMenu();
 			try {
@@ -72,7 +72,7 @@ public class Juego {
 				System.out.println(e.getMessage());
 			}
 		} while (opcionMenu != 5);
-		
+
 //		//El Jugador recorre el mapa entero recolectando materias primas (Opcion Desactivada)
 //		for (int x= 0; x <TAMANO_MUNDO; x++) {
 //			for (int y= 0; y <TAMANO_MUNDO; y++) {
@@ -82,11 +82,11 @@ public class Juego {
 //				}
 //			}
 //		}
-		
+
 
 	}
 
-	
+
 	/**
 	 * Metodo para generar bloques de tipo aleatorio
 	 * @param x posicion x en la que se encuentra el bloque
@@ -102,7 +102,7 @@ public class Juego {
 		//Ponemos el numero de materias +2, se sale del rango (default)
 		//para que los casos +1 y +2 que no estan contemplados, generen bloques vacios
 		int tipo = rd.nextInt(Bloque.NUM_MATERIAS+2);
-		
+
 		try {
 			switch (tipo) {
 			case Bloque.ALBERO: {
@@ -134,40 +134,40 @@ public class Juego {
 			}
 
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return bloque;
 
 	}
-	
+
 	/**
 	 * Muestra las opciones del menu devolviendo la opcion elegida por el jugador
 	 * @return int con la opcion elegida
 	 */
 	public static int mostrarMenu() {
 		int opcionMenu;
-		
+
 		System.out.println("Bienvenido a Mineroy, elige la opcion del menu: \n1.Mover\n2.Crear herramienta\n3.Estado\n\n4.Opcion secreta\n5.Salir");
 		opcionMenu = Integer.parseInt(teclado.nextLine());
-		
+
 		return opcionMenu;
 	}
-	
+
 	/**
 	 * Muestra las direcciones a las que puede moverse el jugador
 	 * @return devuelve la direccion elegida
 	 */
 	public static int mostrarMover() {
 		int direccionElegida;
-		
+
 		System.out.println("A que direccion te quieres mover? \n1.Izquierda\n2.Derecha\n3.Atras\n4.Arriba\n5.Abajo");
 		direccionElegida = Integer.parseInt(teclado.nextLine());
 		
 		return direccionElegida;
 	}
-	
+
 	public static void mostrarMapa(Bloque[][][] mundo3d) {
 		for (int x = 0; x < mundo3d[0][0].length; x++) {
 			System.out.println("\n" + x +"\n");
@@ -178,45 +178,45 @@ public class Juego {
 			}
 		}
 	}
-	
+
 	/**
 	 * Recoge dos parametros tratando la opcion deseada por el jugador
 	 * @param opcionMenu int con la opcion elegida por el jugador
 	 * @param jugador objeto jugador
-	 * @throws MineroyException 
+	 * @throws MineroyException
 	 */
 	public static void tratarMenu(int opcionMenu, Jugador jugador, Bloque[][][] mundo3D) throws MineroyException {
-		
+
 		switch (opcionMenu) {
-		
+
 		case 1:
 			//Se solicita la direccion a donde moverse y si se introduce una correcta se mueve en el mapa
 			int direccionMovimiento;
 			direccionMovimiento=mostrarMover();
-			
+
 			switch (direccionMovimiento) {
-			
+
 			case 1:
-				
+
 				break;
 			case 2:
-				
+
 				break;
 			case 3:
-				
+
 				break;
 			case 4:
-				
+
 				break;
 			case 5:
-				
+
 				break;
 			default:
 				throw new MineroyException("Direccion de movimiento erronea");
-				
+
 			}
-			
-		
+
+
 			break;
 		case 2:
 			//Se crean todas las herramientas si el jugador tiene materiales suficientes
