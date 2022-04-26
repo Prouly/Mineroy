@@ -149,7 +149,7 @@ public class Juego {
 	public static int mostrarMenu() {
 		int opcionMenu;
 
-		System.out.println("Bienvenido a Mineroy, elige la opcion del menu: \n1.Mover\n2.Crear herramienta\n3.Estado\n\n4.Opcion secreta\n5.Salir");
+		System.out.println("\NBienvenido a Mineroy, elige la opcion del menu: \n1.Mover\n2.Crear herramienta\n3.Estado\n4.Opcion secreta\n5.Salir");
 		opcionMenu = Integer.parseInt(teclado.nextLine());
 
 		return opcionMenu;
@@ -236,10 +236,10 @@ public class Juego {
 			mostrarMapa(mundo3D);
 			break;
 		case 5:
-			System.out.println("�Gracias por jugar a Mineroy!");
+			System.out.println("Gracias por jugar a Mineroy!");
 			break;
 		default:
-			throw new MineroyException("ERROR: Has elegido una opcion incorrecta.\\nVolviendo a mostrar menu...\\n");
+			throw new MineroyException("ERROR: Has elegido una opcion incorrecta.\nVolviendo a mostrar menu...\n");
 		}
 	}
 
