@@ -51,14 +51,19 @@ public class Juego {
 			}
 		}
 		//Despues de generarse el mundo ramdon da mensaje de bienvenida que indica se ha creado el mapa
-		System.out.println("¡Mundo Generado!");
+		System.out.println("ï¿½Mundo Generado!");
 		
 		//El usuario introduce su nombre para crear el jugador
-		System.out.println("¿Como se llamará tu jugador?");
-		String nombreJugador = teclado.nextLine();
+		System.out.println("ï¿½Como se llamarÃ¡ el jugador 1?");
+		String nombreJugador1 = teclado.nextLine();
 		
-		//Creamos el jugador
-		Jugador jugador1 = new Jugador(nombreJugador);
+		//Creamos el jugador 1 y el jugador 2
+		Jugador jugador1 = new Jugador(nombreJugador1);
+		
+		System.out.println("ï¿½Como se llamarÃ¡ el jugador 2?");
+		String nombreJugador2 = teclado.nextLine();
+		
+		Jugador jugador2 = new Jugador (nombreJugador2);
 		
 		//Se mostrara el menu del juego
 		
@@ -159,7 +164,7 @@ public class Juego {
 	public static String mostrarMover() {
 		String direccionElegida;
 		
-		System.out.println("¿A que direccion te quieres mover? (Izquierda, Derecha, Atras, Arriba o Abajo");
+		System.out.println("ï¿½A que direccion te quieres mover? (Izquierda, Derecha, Atras, Arriba o Abajo");
 		direccionElegida = teclado.nextLine();
 		
 		return direccionElegida;
@@ -196,7 +201,7 @@ public class Juego {
 			//Opcion secreta para mostrar todo el mapa
 			break;
 		case 5:
-			System.out.println("¡Gracias por jugar a Mineroy!");
+			System.out.println("ï¿½Gracias por jugar a Mineroy!");
 			break;
 		default:
 			System.out.println("ERROR: Has elegido una opcion incorrecta.\nVolviendo a mostrar menu...\n");
