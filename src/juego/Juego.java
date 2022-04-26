@@ -21,9 +21,9 @@ import herramientas.Hacha;
 /**
  * IES Cristobal de Monroy
  * CFGS - Desarrollo de Aplicaciones Multiplataforma
- * Modulo - ProgramaciÃ³n
+ * Modulo - Programacion
  * @category Practica V - MineMonroy
- * @author y0rg
+ * @author Alvaro Muñoz Adan y Francisco Jose Villa
  * @version 1.1
  */
 public class Juego {
@@ -33,6 +33,9 @@ public class Juego {
 	//Indica el tamano del cubo que contendra el mapa que vamos a crear
 	public static final int TAMANO_MUNDO = 10;
 	private static final int NUMERO_BLOQUE_VACIO = (TAMANO_MUNDO*TAMANO_MUNDO*TAMANO_MUNDO)/2;
+	
+	//Opcion para Salir del menu
+	private static final int SALIR_MENU = 5;
 
 	/**
 	 * Metodo principal, ejecuta el juego
@@ -42,8 +45,7 @@ public class Juego {
 		//Creamos el mapa del juego
 		Bloque[][][] mundo3D = new Bloque[TAMANO_MUNDO][TAMANO_MUNDO][TAMANO_MUNDO];
 
-		
-		//Lo rellenamos de bloques aleatorios de cualquier tipo, incluso tipo Bloque (vacio)
+		//Rellenamos las dos primeras capaz del suelo con bloques no vacios
 		for (int x= 0; x <TAMANO_MUNDO; x++) {
 			for (int y= 0; y <TAMANO_MUNDO; y++) {
 				for (int z= 0; z < 2; z++) {
@@ -52,7 +54,8 @@ public class Juego {
 			}
 		}
 		
-		//Lo rellenamos de bloques aleatorios de cualquier tipo, incluso tipo Bloque (vacio)
+		//rellenamos de bloques aleatorios de cualquier tipo, incluso tipo Bloque (vacio)
+		//Una vez haya mas de la mitad de bloques no vacios, se rellena el resto de bloques vacios
 		for (int x= 0; x <TAMANO_MUNDO; x++) {
 			for (int y= 0; y <TAMANO_MUNDO; y++) {
 				for (int z= 2; z <TAMANO_MUNDO; z++) {
@@ -73,7 +76,7 @@ public class Juego {
 		System.out.println("* Mundo Generado *");
 
 		//El usuario introduce su nombre para crear el jugador
-		System.out.println("Â¿Como se llamara tu jugador?");
+		System.out.println("¿Como se llamara tu jugador?");
 		String nombreJugador = teclado.nextLine();
 
 		//Creamos el jugador
@@ -93,7 +96,7 @@ public class Juego {
 			} catch (MineroyException e) {
 				System.out.println(e.getMessage());
 			}
-		} while (opcionMenu != 5);
+		} while (opcionMenu != SALIR_MENU);
 
 	}
 	
@@ -168,47 +171,47 @@ public class Juego {
 
 		try {
 			switch (tipo) {
-			case Bloque.ALBERO: {
-				bloque = new BloqueAlbero(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.ARBOL: {
-				bloque = new BloqueArbol(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.ARCILLA: {
-				bloque = new BloqueArcilla(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.COBRE: {
-				bloque = new BloqueCobre(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.HIERRO: {
-				bloque = new BloqueHierro(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.PLANTA: {
-				bloque = new BloquePlanta(x, y, z);
-				Bloque.bloqueLleno ++;
-				break;
-			}
-			case Bloque.CARNE: {
-				if (Bloque.bloqueAnimal == 0) {
-					bloque = new BloqueAnimal (x,y,z);
-					Bloque.bloqueAnimal++;
-				} else {
+				case Bloque.ALBERO: {
+					bloque = new BloqueAlbero(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.ARBOL: {
+					bloque = new BloqueArbol(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.ARCILLA: {
+					bloque = new BloqueArcilla(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.COBRE: {
+					bloque = new BloqueCobre(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.HIERRO: {
+					bloque = new BloqueHierro(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.PLANTA: {
+					bloque = new BloquePlanta(x, y, z);
+					Bloque.bloqueLleno ++;
+					break;
+				}
+				case Bloque.CARNE: {
+					if (Bloque.bloqueAnimal == 0) {
+						bloque = new BloqueAnimal (x,y,z);
+						Bloque.bloqueAnimal++;
+					} else {
+						bloque = new BloqueVacio(x, y, z);
+					}
+				}
+				default: {
 					bloque = new BloqueVacio(x, y, z);
 				}
-			}
-			default: {
-				bloque = new BloqueVacio(x, y, z);
-			}
 
 			}
 
@@ -305,25 +308,25 @@ public class Juego {
 
 			switch (direccionMovimiento) {
 
-			case 1:
-				jugador.moverIzquierda();
-				break;
-			case 2:
-				jugador.moverDerecha();
-				break;
-			case 3:
-				jugador.moverAdelante();
-				break;
-			case 4:
-				jugador.moverAtras();
-				break;
-			case 5:
-				jugador.moverArriba();
-				break;
-			case 6:
-				jugador.moverAbajo();
-			default:
-				throw new MineroyException("Direccion de movimiento erronea");
+				case 1:
+					jugador.moverIzquierda();
+					break;
+				case 2:
+					jugador.moverDerecha();
+					break;
+				case 3:
+					jugador.moverAdelante();
+					break;
+				case 4:
+					jugador.moverAtras();
+					break;
+				case 5:
+					jugador.moverArriba();
+					break;
+				case 6:
+					jugador.moverAbajo();
+				default:
+					throw new MineroyException("Direccion de movimiento erronea");
 
 			}
 
