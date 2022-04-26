@@ -26,17 +26,15 @@ import herramientas.Hacha;
  * @version 1.1
  */
 public class Juego {
-
-	private static final int DIMENSION_MUNDO = 3;
-
-
 	private static Scanner teclado = new Scanner(System.in);
-
-
+	
 	//Indica el tamano del cubo que contendra el mapa que vamos a crear
 	public static final int TAMANO_MUNDO = 10;
+	private static final int DIMENSION_MUNDO = 3;
 
-
+	//Indica la opcion para salir del menu principal
+	private static final int SALIR_MENU = 5;
+	
 	/**
 	 * Metodo principal, ejecuta el juego
 	 */
@@ -46,7 +44,7 @@ public class Juego {
 		Bloque[][][] mundo3D = new Bloque[TAMANO_MUNDO][TAMANO_MUNDO][TAMANO_MUNDO];
 
 		
-		//Lo rellenamos de bloques aleatorios de cualquier tipo, incluso tipo Bloque (vacio)
+		//Rellenamos los dos primeros niveles con Bloques No Vacios
 		for (int x= 0; x <TAMANO_MUNDO; x++) {
 			for (int y= 0; y <TAMANO_MUNDO; y++) {
 				for (int z= 0; z < 2; z++) {
@@ -55,11 +53,13 @@ public class Juego {
 			}
 		}
 		
-		//Lo rellenamos de bloques aleatorios de cualquier tipo, incluso tipo Bloque (vacio)
+		//Rellenamos resto de posiciones de bloques aleatorios de cualquier tipo. 
+		//Una vez que la mitad o mas no son bloques Vacios, se rellena de bloques vacios
+		
 		for (int x= 0; x <TAMANO_MUNDO; x++) {
 			for (int y= 0; y <TAMANO_MUNDO; y++) {
 				for (int z= 2; z <TAMANO_MUNDO; z++) {
-					if (Bloque.bloqueLleno == (TAMANO_MUNDO*DIMENSION_MUNDO) /2) {
+					if (Bloque.bloqueLleno >= ((TAMANO_MUNDO*DIMENSION_MUNDO) /2)) {
 						mundo3D[x][y][z] = generaBloqueAleatorio(x,y,z);
 					} else {
 						try {
@@ -71,16 +71,20 @@ public class Juego {
 				}
 			}
 		}
-		//Despues de generarse el mundo aleatorio da mensaje de bienvenida que indica se ha creado el mapa
+		
+		//Despues de generarse el mundo aleatorio da mensaje de bienvenida que indica se ha creado el mapa.
 		System.out.println("* Mundo Generado *");
 
-		//El usuario introduce su nombre para crear el jugador
+		//El usuario introduce su nombre para crear el jugador.
 		System.out.println("Como se llamara tu jugador?");
 		String nombreJugador = teclado.nextLine();
 
-		//Creamos el jugador
+		//Creamos el jugador.
 		Jugador jugador1 = new Jugador(nombreJugador);
-
+		
+		//TODO completar el metedo para agregar al jugador al Mapa.
+		agregarJugadorAlMapa(jugador1, mundo3D);
+		
 		//Se mostrara el menu del juego
 
 		int opcionMenu;
@@ -92,7 +96,7 @@ public class Juego {
 			} catch (MineroyException e) {
 				System.out.println(e.getMessage());
 			}
-		} while (opcionMenu != 5);
+		} while (opcionMenu != SALIR_MENU);
 
 	}
 	
@@ -310,7 +314,7 @@ public class Juego {
 				jugador.moverAbajo();
 				break;
 			default:
-				throw new MineroyException("Direccion de movimiento erronea");
+				throw new MineroyException("Direccion de movimiento erronea. Direcciones admitidas: \n1.Izquierda\n2.Derecha\n3.Adelante\n4.Atras\n5.Arriba\n6.Abajo");
 
 			}
 
