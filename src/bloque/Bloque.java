@@ -84,11 +84,6 @@ public abstract class Bloque {
 	}
 
 	@Override
-	public String toString() {
-		return "" + z;
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

@@ -51,10 +51,10 @@ public class Juego {
 			}
 		}
 		//Despues de generarse el mundo ramdon da mensaje de bienvenida que indica se ha creado el mapa
-		System.out.println("�Mundo Generado!");
+		System.out.println("* Mundo Generado *");
 
 		//El usuario introduce su nombre para crear el jugador
-		System.out.println("�Como se llamar� tu jugador?");
+		System.out.println("Como se llamar� tu jugador?");
 		String nombreJugador = teclado.nextLine();
 
 		//Creamos el jugador
@@ -149,7 +149,9 @@ public class Juego {
 	public static int mostrarMenu() {
 		int opcionMenu;
 
-		System.out.println("\NBienvenido a Mineroy, elige la opcion del menu: \n1.Mover\n2.Crear herramienta\n3.Estado\n4.Opcion secreta\n5.Salir");
+
+		System.out.println("\nBienvenido a Mineroy, elige la opcion del menu: \n1.Mover\n2.Crear herramienta\n3.Estado\n4.Opcion secreta\n5.Salir");
+		
 		opcionMenu = Integer.parseInt(teclado.nextLine());
 
 		return opcionMenu;
@@ -162,7 +164,7 @@ public class Juego {
 	public static int mostrarMover() {
 		int direccionElegida;
 
-		System.out.println("A que direccion te quieres mover? \n1.Izquierda\n2.Derecha\n3.Atras\n4.Arriba\n5.Abajo");
+		System.out.println("A que direccion te quieres mover?\n1.Izquierda\n2.Derecha\n3.Atras\n4.Arriba\n5.Abajo");
 		direccionElegida = Integer.parseInt(teclado.nextLine());
 		
 		return direccionElegida;
@@ -175,6 +177,7 @@ public class Juego {
 				for (int z = 0; z < mundo3d.length; z++) {
 					System.out.print(mundo3d[x][y][z] + " ");
 				}
+				System.out.println();
 			}
 		}
 	}
