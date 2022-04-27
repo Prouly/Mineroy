@@ -407,7 +407,16 @@ public class Juego {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
 		Bloque posicionBloqueMovimiento;
-		posicionBloqueMovimiento = mundo3D[jugador.getX() - 1][jugador.getY()][jugador.getZ()];
+		//Controlar que no se salga de rango
+		int posicion;
+		if (jugador.getX()-1 == -1) {
+			posicion = 9;
+		} else {
+			posicion = jugador.getX()-1;
+		}
+		
+		posicionBloqueMovimiento = mundo3D[posicion][jugador.getY()][jugador.getZ()];
+		
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverIzquierda();
 		} else {
@@ -485,7 +494,14 @@ public class Juego {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
 		Bloque posicionBloqueMovimiento;
-		posicionBloqueMovimiento = mundo3D[jugador.getX() + 1][jugador.getY()][jugador.getZ()];
+		//Controlar que no se salga de rango
+		int posicion;
+		if (jugador.getX()+1 == 10) {
+			posicion = 0;
+		} else {
+			posicion = jugador.getX()+1;
+		}
+		posicionBloqueMovimiento = mundo3D[posicion][jugador.getY()][jugador.getZ()];
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverDerecha();
 		} else {
@@ -563,7 +579,14 @@ public class Juego {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
 		Bloque posicionBloqueMovimiento;
-		posicionBloqueMovimiento = mundo3D[jugador.getX()][jugador.getY()][jugador.getZ() + 1];
+		//Controlar que no se salga de rango
+		int posicion;
+		if (jugador.getZ()+1 == 10) {
+			posicion = 0;
+		} else {
+			posicion = jugador.getZ()+1;
+		}
+		posicionBloqueMovimiento = mundo3D[jugador.getX()][jugador.getY()][posicion];
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverArriba();
 		} else {
@@ -641,7 +664,14 @@ public class Juego {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
 		Bloque posicionBloqueMovimiento;
-		posicionBloqueMovimiento = mundo3D[jugador.getX()][jugador.getY()][jugador.getZ() - 1];
+		//Controlar que no se salga de rango
+		int posicion;
+		if (jugador.getZ()-1 == -1) {
+			posicion = 9;
+		} else {
+			posicion = jugador.getZ()-1;
+		}
+		posicionBloqueMovimiento = mundo3D[jugador.getX()][jugador.getY()][posicion];
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverAbajo();
 		} else {
@@ -719,7 +749,14 @@ public class Juego {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
 		Bloque posicionBloqueMovimiento;
-		posicionBloqueMovimiento = mundo3D[jugador.getX()][jugador.getY() + 1][jugador.getZ()];
+		//Controlar que no se salga de rango
+		int posicion;
+		if (jugador.getY()+1 == 10) {
+			posicion = 0;
+		} else {
+			posicion = jugador.getY()+1;
+		}
+		posicionBloqueMovimiento = mundo3D[jugador.getX()][posicion][jugador.getZ()];
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverAdelante();
 		} else {
@@ -797,7 +834,14 @@ public class Juego {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
 		Bloque posicionBloqueMovimiento;
-		posicionBloqueMovimiento = mundo3D[jugador.getX()][jugador.getY() - 1][jugador.getZ()];
+		//Controlar que no se salga de rango
+		int posicion;
+		if (jugador.getY()-1 == -1) {
+			posicion = 9;
+		} else {
+			posicion = jugador.getY()-1;
+		}
+		posicionBloqueMovimiento = mundo3D[jugador.getX()][posicion][jugador.getZ()];
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverAtras();
 		} else {
