@@ -342,16 +342,16 @@ public class Juego {
 				moverJugadorDerecha(jugador, mundo3D);
 				break;
 			case 3:
-				moverJugadorArriba(jugador, mundo3D);
-				break;
-			case 4:
-				moverJugadorAbajo(jugador, mundo3D);
-				break;
-			case 5:
 				moverJugadorAdelante(jugador, mundo3D);
 				break;
-			case 6:
+			case 4:
 				moverJugadorAtras(jugador, mundo3D);
+				break;
+			case 5:
+				moverJugadorArriba(jugador, mundo3D);
+				break;
+			case 6:
+				moverJugadorAbajo(jugador, mundo3D);
 				break;
 			default:
 				throw new MineroyException("Direccion de movimiento erronea");
@@ -403,6 +403,7 @@ public class Juego {
 	public static void moverJugadorIzquierda(Jugador jugador, Bloque[][][] mundo3D) throws MineroyException {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
+		int x,y,z;
 		Bloque posicionBloqueMovimiento;
 		//Controlar que no se salga de rango
 		int posicion;
@@ -410,7 +411,11 @@ public class Juego {
 			posicion = 9;
 		} else {
 			posicion = jugador.getX()-1;
+			
 		}
+		x = posicion;
+		y = jugador.getY();
+		z = jugador.getZ();
 		
 		posicionBloqueMovimiento = mundo3D[posicion][jugador.getY()][jugador.getZ()];
 		System.out.println("La casilla a la que vas a moverte contiene bloque:" + posicionBloqueMovimiento);
@@ -431,6 +436,8 @@ public class Juego {
 					herramientaNecesaria.usarHerramienta();
 					// Mueves a la nueva posicion
 					jugador.moverIzquierda();
+					Bloque bloque = new BloqueVacio(x,y,z);
+					mundo3D[x][y][z] = bloque;
 				} else {
 					System.out.println("La herramienta "+BloqueMineral.HERRAMIENTA+" no puede destruir el bloque mineral ya no le quedan usos, haz una nueva.");
 				}
@@ -443,10 +450,13 @@ public class Juego {
 				if (herramientaNecesaria.getUsosRestantes() > 0) {
 					// Destruye el bloque
 					posicionBloqueMovimiento.destruir(herramientaNecesaria, jugador);
+					
 					// Quitas un uso de la herramienta
 					herramientaNecesaria.usarHerramienta();
 					// Mueves a la nueva posicion
 					jugador.moverIzquierda();
+					Bloque bloque = new BloqueVacio(x,y,z);
+					mundo3D[x][y][z] = bloque;
 				} else {
 					System.out.println("La herramienta "+BloqueVegetal.HERRAMIENTA+" no puede destruir el bloque vegetal ya que no le quedan usos, haz una nueva.");
 				}
@@ -460,10 +470,13 @@ public class Juego {
 				if (herramientaNecesaria.getUsosRestantes() > 0) {
 					// Destruye el bloque
 					posicionBloqueMovimiento.destruir(herramientaNecesaria, jugador);
+					
 					// Quitas un uso de la herramienta
 					herramientaNecesaria.usarHerramienta();
 					// Mueves a la nueva posicion
 					jugador.moverIzquierda();
+					Bloque bloque = new BloqueVacio(x,y,z);
+					mundo3D[x][y][z] = bloque;
 				} else {
 					System.out.println("La herramienta "+BloqueTierra.HERRAMIENTA+" no puede destruir el bloque tierra ya que no le quedan usos, haz una nueva.");
 				}
@@ -477,6 +490,8 @@ public class Juego {
 				if (herramientaNecesaria.getUsosRestantes() > 0) {
 					// Destruye el bloque
 					posicionBloqueMovimiento.destruir(herramientaNecesaria, jugador);
+					Bloque bloque = new BloqueVacio(x,y,z);
+					mundo3D[x][y][z] = bloque;
 					// Quitas un uso de la herramienta
 					herramientaNecesaria.usarHerramienta();
 					// Mueves a la nueva posicion
@@ -491,6 +506,7 @@ public class Juego {
 	public static void moverJugadorDerecha(Jugador jugador, Bloque[][][] mundo3D) throws MineroyException {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
+		int x,y,z;
 		Bloque posicionBloqueMovimiento;
 		//Controlar que no se salga de rango
 		int posicion;
@@ -517,6 +533,8 @@ public class Juego {
 					herramientaNecesaria.usarHerramienta();
 					// Mueves a la nueva posicion
 					jugador.moverDerecha();
+					Bloque bloque = new BloqueVacio(x,y,z);
+					mundo3D[x][y][z] = bloque;
 				} else {
 					System.out.println("La herramienta "+BloqueMineral.HERRAMIENTA+" no puede destruir el bloque mineral ya que no le quedan usos, haz una nueva.");
 				}
@@ -533,6 +551,8 @@ public class Juego {
 					herramientaNecesaria.usarHerramienta();
 					// Mueves a la nueva posicion
 					jugador.moverDerecha();
+					Bloque bloque = new BloqueVacio(x,y,z);
+					mundo3D[x][y][z] = bloque;
 				} else {
 					System.out.println("La herramienta "+BloqueVegetal.HERRAMIENTA+" no puede destruir el bloque vegetal ya que no le quedan usos, haz una nueva.");
 				}
@@ -550,6 +570,8 @@ public class Juego {
 					herramientaNecesaria.usarHerramienta();
 					// Mueves a la nueva posicion
 					jugador.moverDerecha();
+					Bloque bloque = new BloqueVacio(x,y,z);
+					mundo3D[x][y][z] = bloque;
 				} else {
 					System.out.println("La herramienta "+BloqueTierra.HERRAMIENTA+" no puede destruir el bloque tierra ya que no le quedan usos, haz una nueva.");
 				}
@@ -567,6 +589,8 @@ public class Juego {
 					herramientaNecesaria.usarHerramienta();
 					// Mueves a la nueva posicion
 					jugador.moverDerecha();
+					Bloque bloque = new BloqueVacio(x,y,z);
+					mundo3D[x][y][z] = bloque;
 				} else {
 					System.out.println("La herramienta "+BloqueAnimal.HERRAMIENTA+" no puede destruir el bloque animal ya que no le quedan usos, haz una nueva.");;
 				}

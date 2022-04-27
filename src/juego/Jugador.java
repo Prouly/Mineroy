@@ -117,10 +117,10 @@ public class Jugador {
 
 	public void setX(int x) {
 		//Si se encuentra en el valor maximo o minimo aparece en el otro extremo
-		if(this.x<0) {
+		if(x<0) {
 			this.x = 9;
 		} else {
-			if(this.x>9) {
+			if(x>9) {
 				this.x = 0;
 			} else {
 				this.x = x;
@@ -136,10 +136,10 @@ public class Jugador {
 	public void setY(int y) {
 		
 		//Si se encuentra en el valor maximo o minimo aparece en el otro extremo
-		if(this.y<0) {
+		if(y<0) {
 			this.y = 9;
 		} else {
-			if(this.y>9) {
+			if(y>9) {
 				this.y = 0;
 			} else {
 				this.y = y;
@@ -155,10 +155,10 @@ public class Jugador {
 
 	public void setZ(int z) {
 		//Si se encuentra en el valor maximo o minimo aparece en el otro extremo
-		if(this.z<0) {
+		if(z<0) {
 			this.z = 9;
 		} else {
-			if(this.z>9) {
+			if(z>9) {
 				this.z = 0;
 			} else {
 				this.z = z;
@@ -210,7 +210,6 @@ public class Jugador {
 	public void moverDerecha() {
 		int posicionX;
 		
-		
 		posicionX = this.x + MOVIMIENTOS_TURNO;
 		setX(posicionX);
 			
@@ -229,7 +228,7 @@ public class Jugador {
 		int posicionY;
 		
 		posicionY = this.y + MOVIMIENTOS_TURNO;
-		setZ(posicionY);
+		setY(posicionY);
 		
 	}
 	
@@ -269,7 +268,7 @@ public class Jugador {
 		
 		for (int i = 0; i < materiasPrimas.length && comprobacion == false; i++) {
 			
-			if (materiasPrimas[i] == 7) {
+			if (materiasPrimas[i] == 1) {
 				finDeJuego = true;
 			} else {
 				comprobacion = true;
