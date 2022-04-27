@@ -32,6 +32,8 @@ public class Jugador {
 	private int x;
 	private int y;
 	private int z;
+
+	
 	
 	/**
 	 * Se crea jugador con materias Primas a 0 y con todas las herramientas creadas con 5 usos cada una
@@ -154,11 +156,11 @@ public class Jugador {
 
 	public void setZ(int z) {
 		//Si se encuentra en el valor maximo o minimo aparece en el otro extremo
-		if(this.z<2) {
+		if(this.z<0) {
 			this.z = 9;
 		} else {
 			if(this.z>9) {
-				this.z = 2;
+				this.z = 0;
 			} else {
 				this.z = z;
 			}
@@ -209,10 +211,12 @@ public class Jugador {
 	public void moverDerecha() {
 		int posicionX;
 		
+		
 		posicionX = this.x + MOVIMIENTOS_TURNO;
 		setX(posicionX);
 			
 	}
+
 	
 	public void moverIzquierda() {
 		int posicionX;
@@ -258,6 +262,22 @@ public class Jugador {
 		setX(x);
 		setY(y);
 		setZ(z);
+	}
+	
+	public boolean finDeJuego () {
+		boolean finDeJuego = false;
+		boolean comprobacion = false;
+		
+		for (int i = 0; i < materiasPrimas.length && comprobacion == false; i++) {
+			
+			if (materiasPrimas[i] == 7) {
+				finDeJuego = true;
+			} else {
+				comprobacion = true;
+			}
+			
+		}
+		return finDeJuego;
 	}
 
 }

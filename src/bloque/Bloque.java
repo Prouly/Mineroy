@@ -22,8 +22,9 @@ public abstract class Bloque {
 	//Nueva material agregado
 	public static final int CARNE = 6;
 	
+	public static final int VACIO = 7;
 	//Cantidad total de Materiales
-	public static final int NUM_MATERIAS = 7; 
+	public static final int NUM_MATERIAS = 8; 
 	
 	public static int bloqueLleno = 0;
 	public static int bloqueAnimal = 0;

@@ -25,7 +25,7 @@ public class BloqueAnimal extends Bloque {
 
 	@Override
 	public String toString() {
-		return "| CER |";
+		return "| cer |";
 	}
 
 
