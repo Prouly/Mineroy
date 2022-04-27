@@ -109,13 +109,23 @@ public class Jugador {
 		
 	}
 	
-	//Getter y Setter de Atributos que indican la posicion del jugador
+	//Getter y Setter de Atributos que indican o cambian la posicion del jugador
 	public int getX() {
 		return x;
 	}
 
 	public void setX(int x) {
-		this.x = x;
+		//Si se encuentra en el valor maximo o minimo aparece en el otro extremo
+		if(this.x<0) {
+			this.x = 9;
+		} else {
+			if(this.x>9) {
+				this.x = 0;
+			} else {
+				this.x = x;
+			}
+			
+		} 
 	}
 
 	public int getY() {
@@ -123,7 +133,19 @@ public class Jugador {
 	}
 
 	public void setY(int y) {
-		this.y = y;
+		
+		//Si se encuentra en el valor maximo o minimo aparece en el otro extremo
+		if(this.y<0) {
+			this.y = 9;
+		} else {
+			if(this.y>9) {
+				this.y = 0;
+			} else {
+				this.y = y;
+			}
+			
+		} 
+		
 	}
 
 	public int getZ() {
@@ -131,7 +153,18 @@ public class Jugador {
 	}
 
 	public void setZ(int z) {
-		this.z = z;
+		//Si se encuentra en el valor maximo o minimo aparece en el otro extremo
+		if(this.z<2) {
+			this.z = 9;
+		} else {
+			if(this.z>9) {
+				this.z = 2;
+			} else {
+				this.z = z;
+			}
+			
+		} 
+		
 	}
 
 	/**

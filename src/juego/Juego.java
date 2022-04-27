@@ -240,7 +240,7 @@ public class Juego {
 		
 		for (int x= 0; x <TAMANO_MUNDO || agregado == false; x++) {
 			for (int y= 0; y <TAMANO_MUNDO; y++) {
-				for (int z= 0; z <TAMANO_MUNDO; z++) {
+				for (int z= 2; z <TAMANO_MUNDO; z++) {
 					//Se agrega el jugador en el primer bloque vacio
 					if (mundo3D[x][y][z] instanceof BloqueVacio) {
 						agregado = true;
