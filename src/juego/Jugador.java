@@ -32,8 +32,6 @@ public class Jugador {
 	private int x;
 	private int y;
 	private int z;
-
-	
 	
 	/**
 	 * Se crea jugador con materias Primas a 0 y con todas las herramientas creadas con 5 usos cada una
@@ -66,7 +64,8 @@ public class Jugador {
 						+ "\n- Herramientas (usos restantes):\nHacha: "+ herramientasJugador[Herramienta.HACHA].getUsosRestantes()
 						+"\nPala: "+ herramientasJugador[Herramienta.PALA].getUsosRestantes()
 						+"\nPico: "+ herramientasJugador[Herramienta.PICO].getUsosRestantes()
-						+"\nEspada: "+ herramientasJugador[Herramienta.ESPADA].getUsosRestantes();
+						+"\nEspada: "+ herramientasJugador[Herramienta.ESPADA].getUsosRestantes()
+						+"\n- Posicion: [Eje X: "+getX()+" |Eje Y: "+gety()+" |Eje Z: "+getZ()+"]";
 	}
 
 	

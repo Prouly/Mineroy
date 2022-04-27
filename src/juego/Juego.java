@@ -343,11 +343,9 @@ public class Juego {
 				break;
 			case 3:
 				moverJugadorArriba(jugador, mundo3D);
-
 				break;
 			case 4:
 				moverJugadorAbajo(jugador, mundo3D);
-
 				break;
 			case 5:
 				moverJugadorAdelante(jugador, mundo3D);
