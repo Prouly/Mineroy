@@ -416,6 +416,7 @@ public class Juego {
 		}
 		
 		posicionBloqueMovimiento = mundo3D[posicion][jugador.getY()][jugador.getZ()];
+		System.out.println("La casilla a la que vas a moverte contiene bloque:" + posicionBloqueMovimiento);
 		
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverIzquierda();
@@ -502,6 +503,7 @@ public class Juego {
 			posicion = jugador.getX()+1;
 		}
 		posicionBloqueMovimiento = mundo3D[posicion][jugador.getY()][jugador.getZ()];
+		System.out.println("La casilla a la que vas a moverte contiene bloque:" + posicionBloqueMovimiento);
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverDerecha();
 		} else {
@@ -587,6 +589,7 @@ public class Juego {
 			posicion = jugador.getZ()+1;
 		}
 		posicionBloqueMovimiento = mundo3D[jugador.getX()][jugador.getY()][posicion];
+		System.out.println("La casilla a la que vas a moverte contiene bloque:" + posicionBloqueMovimiento);
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverArriba();
 		} else {
@@ -668,7 +671,10 @@ public class Juego {
 		} else {
 			posicion = jugador.getZ()-1;
 		}
+		
 		posicionBloqueMovimiento = mundo3D[jugador.getX()][jugador.getY()][posicion];
+		System.out.println("La casilla a la que vas a moverte contiene bloque:" + posicionBloqueMovimiento);
+		
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverAbajo();
 		} else {
@@ -742,6 +748,7 @@ public class Juego {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
 		Bloque posicionBloqueMovimiento;
+		
 		//Controlar que no se salga de rango
 		int posicion;
 		if (jugador.getY()+1 == 10) {
@@ -749,7 +756,10 @@ public class Juego {
 		} else {
 			posicion = jugador.getY()+1;
 		}
+		
 		posicionBloqueMovimiento = mundo3D[jugador.getX()][posicion][jugador.getZ()];
+		System.out.println("La casilla a la que vas a moverte contiene bloque:" + posicionBloqueMovimiento);
+		
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverAdelante();
 		} else {
@@ -826,6 +836,7 @@ public class Juego {
 		Herramienta herramientaNecesaria;
 		int herramientaSolicitada;
 		Bloque posicionBloqueMovimiento;
+		
 		//Controlar que no se salga de rango
 		int posicion;
 		if (jugador.getY()-1 == -1) {
@@ -835,6 +846,8 @@ public class Juego {
 		}
 		
 		posicionBloqueMovimiento = mundo3D[jugador.getX()][posicion][jugador.getZ()];
+		System.out.println("La casilla a la que vas a moverte contiene bloque:" + posicionBloqueMovimiento);
+		
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverAtras();
 		} else {
