@@ -268,7 +268,7 @@ public class Jugador {
 		
 		for (int i = 0; i < materiasPrimas.length && comprobacion == false; i++) {
 			
-			if (materiasPrimas[i] == 1) {
+			if (materiasPrimas[i] == 7) {
 				finDeJuego = true;
 			} else {
 				comprobacion = true;
