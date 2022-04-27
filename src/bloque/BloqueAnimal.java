@@ -6,6 +6,7 @@ import juego.Jugador;
 
 public class BloqueAnimal extends Bloque {
 	
+	public static final String HERRAMIENTA ="Espada";
 	
 	private int material;
 	

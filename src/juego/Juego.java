@@ -434,7 +434,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverIzquierda();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueMineral.HERRAMIENTA+" no puede destruir el bloque mineral ya no le quedan usos, haz una nueva.");
 				}
 				// Se busca el Bloque Vegetal
 			} else if (posicionBloqueMovimiento instanceof BloqueVegetal) {
@@ -450,7 +450,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverIzquierda();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueVegetal.HERRAMIENTA+" no puede destruir el bloque vegetal ya que no le quedan usos, haz una nueva.");
 				}
 				// Se busca el Bloque Tierra
 			} else if (posicionBloqueMovimiento instanceof BloqueTierra) {
@@ -467,7 +467,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverIzquierda();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueTierra.HERRAMIENTA+" no puede destruir el bloque tierra ya que no le quedan usos, haz una nueva.");
 				}
 
 				// Se busca el Bloque Tierra
@@ -484,7 +484,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverIzquierda();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueAnimal.HERRAMIENTA+" no puede destruir el bloque animal ya que no le quedan usos, haz una nueva.");
 				}
 			}
 		}
@@ -519,7 +519,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverDerecha();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueMineral.HERRAMIENTA+" no puede destruir el bloque mineral ya que no le quedan usos, haz una nueva.");
 				}
 				// Se busca el Bloque Vegetal
 			} else if (posicionBloqueMovimiento instanceof BloqueVegetal) {
@@ -535,7 +535,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverDerecha();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueVegetal.HERRAMIENTA+" no puede destruir el bloque vegetal ya que no le quedan usos, haz una nueva.");
 				}
 				// Se busca el Bloque Tierra
 			} else if (posicionBloqueMovimiento instanceof BloqueTierra) {
@@ -552,7 +552,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverDerecha();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueTierra.HERRAMIENTA+" no puede destruir el bloque tierra ya que no le quedan usos, haz una nueva.");
 				}
 
 				// Se busca el Bloque Tierra
@@ -569,7 +569,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverDerecha();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueAnimal.HERRAMIENTA+" no puede destruir el bloque animal ya que no le quedan usos, haz una nueva.");;
 				}
 			}
 		}
@@ -604,8 +604,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverArriba();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
-				}
+					System.out.println("La herramienta "+BloqueMineral.HERRAMIENTA+" no puede destruir el bloque mineral ya no le quedan usos, haz una nueva.");				}
 				// Se busca el Bloque Vegetal
 			} else if (posicionBloqueMovimiento instanceof BloqueVegetal) {
 				// Pides la herramienta Necesaria
@@ -620,8 +619,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverArriba();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
-				}
+					System.out.println("La herramienta "+BloqueVegetal.HERRAMIENTA+" no puede destruir el bloque vegetal ya que no le quedan usos, haz una nueva.");				}
 				// Se busca el Bloque Tierra
 			} else if (posicionBloqueMovimiento instanceof BloqueTierra) {
 
@@ -637,8 +635,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverArriba();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
-				}
+					System.out.println("La herramienta "+BloqueTierra.HERRAMIENTA+" no puede destruir el bloque tierra ya que no le quedan usos, haz una nueva.");				}
 
 				// Se busca el Bloque Tierra
 			} else if (posicionBloqueMovimiento instanceof BloqueAnimal) {
@@ -654,7 +651,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverArriba();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueAnimal.HERRAMIENTA+" no puede destruir el bloque animal ya que no le quedan usos, haz una nueva.");
 				}
 			}
 		}
@@ -689,8 +686,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAbajo();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
-				}
+					System.out.println("La herramienta "+BloqueMineral.HERRAMIENTA+" no puede destruir el bloque mineral ya no le quedan usos, haz una nueva.");				}
 				// Se busca el Bloque Vegetal
 			} else if (posicionBloqueMovimiento instanceof BloqueVegetal) {
 				// Pides la herramienta Necesaria
@@ -705,8 +701,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAbajo();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
-				}
+					System.out.println("La herramienta "+BloqueVegetal.HERRAMIENTA+" no puede destruir el bloque vegetal ya que no le quedan usos, haz una nueva.");				}
 				// Se busca el Bloque Tierra
 			} else if (posicionBloqueMovimiento instanceof BloqueTierra) {
 
@@ -722,8 +717,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAbajo();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
-				}
+					System.out.println("La herramienta "+BloqueTierra.HERRAMIENTA+" no puede destruir el bloque tierra ya que no le quedan usos, haz una nueva.");				}
 
 				// Se busca el Bloque Tierra
 			} else if (posicionBloqueMovimiento instanceof BloqueAnimal) {
@@ -739,8 +733,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAbajo();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
-				}
+					System.out.println("La herramienta "+BloqueAnimal.HERRAMIENTA+" no puede destruir el bloque animal ya que no le quedan usos, haz una nueva.");				}
 			}
 		}
 	}
@@ -774,8 +767,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAdelante();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
-				}
+					System.out.println("La herramienta "+BloqueMineral.HERRAMIENTA+" no puede destruir el bloque mineral ya no le quedan usos, haz una nueva.");				}
 				// Se busca el Bloque Vegetal
 			} else if (posicionBloqueMovimiento instanceof BloqueVegetal) {
 				// Pides la herramienta Necesaria
@@ -790,7 +782,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAdelante();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueVegetal.HERRAMIENTA+" no puede destruir el bloque vegetal ya que no le quedan usos, haz una nueva.");
 				}
 				// Se busca el Bloque Tierra
 			} else if (posicionBloqueMovimiento instanceof BloqueTierra) {
@@ -807,7 +799,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAdelante();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueTierra.HERRAMIENTA+" no puede destruir el bloque tierra ya que no le quedan usos, haz una nueva.");
 				}
 
 				// Se busca el Bloque Tierra
@@ -824,7 +816,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAdelante();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueAnimal.HERRAMIENTA+" no puede destruir el bloque animal ya que no le quedan usos, haz una nueva.");
 				}
 			}
 		}
@@ -860,7 +852,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAtras();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueMineral.HERRAMIENTA+" no puede destruir el bloque mineral ya no le quedan usos, haz una nueva.");
 				}
 				// Se busca el Bloque Vegetal
 			} else if (posicionBloqueMovimiento instanceof BloqueVegetal) {
@@ -876,7 +868,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAtras();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueVegetal.HERRAMIENTA+" no puede destruir el bloque vegetal ya que no le quedan usos, haz una nueva.");
 				}
 				// Se busca el Bloque Tierra
 			} else if (posicionBloqueMovimiento instanceof BloqueTierra) {
@@ -893,7 +885,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAtras();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueTierra.HERRAMIENTA+" no puede destruir el bloque tierra ya que no le quedan usos, haz una nueva.");
 				}
 
 				// Se busca el Bloque Tierra
@@ -910,7 +902,7 @@ public class Juego {
 					// Mueves a la nueva posicion
 					jugador.moverAtras();
 				} else {
-					System.out.println("No tienes las suficientes herramientas para destruir el bloque");
+					System.out.println("La herramienta "+BloqueAnimal.HERRAMIENTA+" no puede destruir el bloque animal ya que no le quedan usos, haz una nueva.");
 				}
 			}
 		}
