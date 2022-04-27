@@ -354,11 +354,10 @@ public class Juego {
 				break;
 			case 6:
 				moverJugadorAtras(jugador, mundo3D);
+				break;
 			default:
 				throw new MineroyException("Direccion de movimiento erronea");
-
 			}
-
 			break;
 		case 2:
 			// Se crean todas las herramientas si el jugador tiene materiales suficientes
