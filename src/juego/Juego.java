@@ -841,6 +841,7 @@ public class Juego {
 		} else {
 			posicion = jugador.getY()-1;
 		}
+		
 		posicionBloqueMovimiento = mundo3D[jugador.getX()][posicion][jugador.getZ()];
 		if (posicionBloqueMovimiento instanceof BloqueVacio) {
 			jugador.moverAtras();
