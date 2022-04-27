@@ -65,7 +65,7 @@ public class Jugador {
 						+"\nPala: "+ herramientasJugador[Herramienta.PALA].getUsosRestantes()
 						+"\nPico: "+ herramientasJugador[Herramienta.PICO].getUsosRestantes()
 						+"\nEspada: "+ herramientasJugador[Herramienta.ESPADA].getUsosRestantes()
-						+"\n- Posicion: [Eje X: "+getX()+" |Eje Y: "+gety()+" |Eje Z: "+getZ()+"]";
+						+"\n- Posicion: [Eje X: "+getX()+" |Eje Y: "+getY()+" |Eje Z: "+getZ()+"]";
 	}
 
 	
