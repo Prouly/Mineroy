@@ -16,7 +16,6 @@ import bloque.MineroyException;
 import bloque.categoria.BloqueMineral;
 import bloque.categoria.BloqueTierra;
 import bloque.categoria.BloqueVegetal;
-import herramientas.Hacha;
 import herramientas.Herramienta;
 
 /**
