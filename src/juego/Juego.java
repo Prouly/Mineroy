@@ -305,9 +305,9 @@ public class Juego {
 			for (int y = 0; y < mundo3d[0].length; y++) {
 				for (int x = 0; x < mundo3d.length; x++) {
 					if (mundo3d[x][y][z] == mundo3d[jugador.getX()][jugador.getY()][jugador.getZ()]) {
-						System.out.print("*"+ x + y + z + "*" + "| JUG |" +  " ");
+						System.out.print("|JUG|");
 					} else {
-						System.out.print("*"+ x + y + z + "*"+mundo3d[x][y][z] + " ");
+						System.out.print(mundo3d[x][y][z]);
 					}
 					//System.out.print(mundo3d[x][y][z]);
 				}

@@ -25,7 +25,7 @@ public class BloqueHierro extends Bloque implements BloqueMineral{
 	
 	@Override
 	public String toString() {
-		return "| hie |";
+		return "|hie|";
 	}
 
 }

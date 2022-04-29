@@ -24,7 +24,7 @@ public class BloqueCobre extends Bloque implements BloqueMineral{
 
 	@Override
 	public String toString() {
-		return "| cob |";
+		return "|cob|";
 	}
 
 }

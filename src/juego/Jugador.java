@@ -60,12 +60,13 @@ public class Jugador {
 	public String toString() {
 		return this.nombre + "\n- Materias primas recolectadas:\n" + "Plantas: " + materiasPrimas[Bloque.PLANTA] + "\nArboles: "
 				+ materiasPrimas[Bloque.ARBOL] + "\nArcilla: " + materiasPrimas[Bloque.ARCILLA] + "\nAlbero: "
-				+ materiasPrimas[Bloque.ALBERO] + "\nHierro: " + materiasPrimas[Bloque.HIERRO] + "\nCobre: " + materiasPrimas[Bloque.COBRE]
-						+ "\n- Herramientas (usos restantes):\nHacha: "+ herramientasJugador[Herramienta.HACHA].getUsosRestantes()
-						+"\nPala: "+ herramientasJugador[Herramienta.PALA].getUsosRestantes()
-						+"\nPico: "+ herramientasJugador[Herramienta.PICO].getUsosRestantes()
-						+"\nEspada: "+ herramientasJugador[Herramienta.ESPADA].getUsosRestantes()
-						+"\n- Posicion: [Eje X: "+getX()+" |Eje Y: "+getY()+" |Eje Z: "+getZ()+"]";
+				+ materiasPrimas[Bloque.ALBERO] + "\nHierro: " + materiasPrimas[Bloque.HIERRO] + "\nCobre: " + materiasPrimas[Bloque.COBRE] 
+				+ "\nCarne: "+ materiasPrimas[Bloque.CARNE] 
+				+ "\n- Herramientas (usos restantes):\nHacha: "+ herramientasJugador[Herramienta.HACHA].getUsosRestantes()
+				+"\nPala: "+ herramientasJugador[Herramienta.PALA].getUsosRestantes()
+				+"\nPico: "+ herramientasJugador[Herramienta.PICO].getUsosRestantes()
+				+"\nEspada: "+ herramientasJugador[Herramienta.ESPADA].getUsosRestantes()
+				+"\n- Posicion: [Eje X: "+getX()+" |Eje Y: "+getY()+" |Eje Z: "+getZ()+"]";
 	}
 
 	
